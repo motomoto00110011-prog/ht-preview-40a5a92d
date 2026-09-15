@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="HarmonyTEC Holdings">
 <meta property="og:description" content="Materials without the harmful elements, for industry worldwide.">
-<meta property="og:image" content="img/ehon-cover.jpg">
+<meta property="og:image" content="img/ep1-cover.jpg">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
@@ -355,28 +355,54 @@ a{color:var(--accent-ink)}
 .net .v{font-size:var(--fs-small); line-height:1.65}
 
 /* ─────────── picture book ─────────── */
-.bookwrap{display:grid; gap:clamp(22px,4vw,36px); margin-top:8px}
-@media(min-width:760px){.bookwrap{grid-template-columns:300px 1fr; align-items:start}}
-.cover{
-  border-radius:4px; overflow:hidden; box-shadow:var(--shadow);
-  border:1px solid var(--rule); background:var(--card);
+.brandline{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  margin-top:26px; padding:14px 18px; border-radius:4px;
+  background:var(--paper-2); border:1px solid var(--rule);
 }
-.cover img{display:block; width:100%; height:auto}
-.tagline{
-  margin-top:14px; text-align:center;
-  font-family:var(--ff-mono); font-size:.72rem; letter-spacing:.06em;
-  color:var(--ink-3); line-height:1.7;
+.brandline .bn{
+  font-family:var(--ff-disp); font-weight:800; font-size:1.15rem;
+  color:var(--accent-ink); letter-spacing:.01em;
 }
-.spreads{display:grid; gap:16px; margin-top:32px}
+.brandline .bt{font-size:var(--fs-small); color:var(--ink-3); line-height:1.7}
+
+.episodes{display:grid; gap:clamp(16px,3vw,24px); margin-top:30px}
+@media(min-width:680px){.episodes{grid-template-columns:repeat(3,1fr)}}
+.ep figure{margin:0}
+.ep img{
+  display:block; width:100%; height:auto; border-radius:4px;
+  border:1px solid var(--rule); box-shadow:var(--shadow); background:var(--card);
+}
+.ep figcaption{margin-top:11px}
+.ep .no{
+  font-family:var(--ff-mono); font-size:var(--fs-mono);
+  letter-spacing:.1em; color:var(--accent); display:block; margin-bottom:4px;
+}
+.ep .ti{display:block; font-weight:700; font-size:.92rem; line-height:1.55}
+.ep .su{display:block; font-size:.76rem; color:var(--ink-3); margin-top:3px; line-height:1.6}
+
+.arc{
+  display:grid; gap:12px; margin-top:32px;
+  grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+}
+.arcbox{
+  padding:15px 17px; border-radius:4px;
+  background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent);
+}
+.arcbox .s{
+  font-family:var(--ff-mono); font-size:var(--fs-mono);
+  letter-spacing:.08em; color:var(--accent); display:block; margin-bottom:5px;
+}
+.arcbox .b{font-size:var(--fs-small); line-height:1.65}
+
+.spreads{display:grid; gap:14px; margin-top:34px}
 @media(min-width:620px){.spreads{grid-template-columns:repeat(3,1fr)}}
 .spread figure{margin:0}
 .spread img{
   display:block; width:100%; height:auto; border-radius:3px;
   border:1px solid var(--rule); background:var(--card);
 }
-.spread figcaption{
-  margin-top:9px; font-size:.78rem; line-height:1.7; color:var(--ink-3);
-}
+.spread figcaption{margin-top:9px; font-size:.78rem; line-height:1.7; color:var(--ink-3)}
 .spread figcaption b{color:var(--ink-2); font-weight:700}
 
 /* ─────────── org tree ─────────── */
@@ -804,54 +830,77 @@ footer a{color:var(--ink-2)}
   </section>
 
   <section id="ehon">
-    <p class="eyebrow"><span class="ja">はじめての方へ</span><span class="en">For everyone else</span></p>
-    <h2><span class="ja">この研究には、絵本があります。</span><span class="en">This research has a picture book.</span></h2>
+    <p class="eyebrow"><span class="ja">絵本</span><span class="en">Picture books</span></p>
+    <h2><span class="ja">むずかしい論文を、絵本にしています。</span><span class="en">We turn difficult papers into picture books.</span></h2>
 
-    <div class="bookwrap">
-      <div>
-        <div class="cover">
-          <img src="img/ehon-cover.jpg" alt="てつのようせい ふぇり — 表紙" loading="lazy" decoding="async">
-        </div>
-        <p class="tagline">ちいさな ふしぎが せかいを かえる<br>Small Wonders, A Brighter World.</p>
-      </div>
+    <p class="ja">私たちのチームには、科学者でない人間がいます。その人間が、研究者の論文を本当に理解するために作りはじめたのが、この絵本です。外に見せるために作ったのではなく、まず自分たちが分かるために作りました。</p>
+    <p class="en">There are people on this team who are not scientists. These books began as their way of genuinely understanding what our researchers had written. They were not made to be shown to anyone. They were made so that we could understand.</p>
+    <p class="ja"><strong>説明できないことは、理解していないということだと考えています。</strong></p>
+    <p class="en"><strong>We take the view that what cannot be explained has not been understood.</strong></p>
 
-      <div>
-        <p class="ja"><strong>『てつのようせい ふぇり』</strong>　〜ぼくにも、ひかりがあった。〜</p>
-        <p class="en"><strong>“Feri, the Iron Fairy”</strong> — <em>There was light in me after all.</em></p>
-
-        <p class="ja">ようせいの工房で、ある日ぼんっと生まれた、ちいさな黒いつぶ。とぼうとして落ち、うまくいかなくて泣きます。「ぼく、なにもできないよ」と言うふぇりに、なかまが手をさしだす——そういう話です。</p>
-        <p class="en">A small black speck comes into the world with a bang in a fairy's workshop. It tries to fly and falls. It cannot do the thing it wanted to do, and it cries. When it says “I'm no use to anyone,” someone reaches out a hand.</p>
-
-        <p class="ja">工房には <strong>「しっぱいたからばこ」</strong> という箱があります。うまくいかなかったものを、捨てずに入れておく箱です。</p>
-        <p class="en">In the workshop there is a box marked <strong>“the failure treasure chest.”</strong> Things that did not work are not thrown away. They are kept.</p>
-
-        <p class="ja">とべなかったふぇりに、なかまがこう言います。<strong>「でも、ひかった!」</strong></p>
-        <p class="en">And to the speck that could not fly, a friend says: <strong>“But you shone!”</strong></p>
-
-        <p class="ja">研究とは、そういうものだと思っています。難しい言葉は、この本にひとつも出てきません。</p>
-        <p class="en">That, we think, is what research is. Not one technical term appears in the book.</p>
-      </div>
+    <div class="brandline">
+      <span class="bn">Fuwally</span>
+      <span class="bt">ちいさな ふしぎが せかいを かえる　／　Small Wonders, A Brighter World.</span>
     </div>
 
+    <div class="episodes">
+      <div class="ep"><figure>
+        <img src="img/ep1-cover.jpg" alt="Episode 1 てつのようせい ふぇり" loading="lazy" decoding="async">
+        <figcaption>
+          <span class="no">Episode 1</span>
+          <span class="ti"><span class="ja">てつのようせい ふぇり</span><span class="en">Feri, the Iron Fairy</span></span>
+          <span class="su"><span class="ja">〜ぼくにも、ひかりがあった。〜</span><span class="en">There was light in me after all.</span></span>
+        </figcaption>
+      </figure></div>
+      <div class="ep"><figure>
+        <img src="img/ep2-cover.jpg" alt="Episode 2 ふぇりちゃんとクオンタシティ" loading="lazy" decoding="async">
+        <figcaption>
+          <span class="no">Episode 2</span>
+          <span class="ti"><span class="ja">ふぇりちゃんと クオンタシティ</span><span class="en">Feri and Quanta City</span></span>
+          <span class="su"><span class="ja">〜もっと ひろがる ふしぎの せかいへ〜</span><span class="en">Into a wider world of wonders.</span></span>
+        </figcaption>
+      </figure></div>
+      <div class="ep"><figure>
+        <img src="img/ep3-cover.jpg" alt="Episode 3 ふぇりちゃんとみらいのまち" loading="lazy" decoding="async">
+        <figcaption>
+          <span class="no">Episode 3</span>
+          <span class="ti"><span class="ja">ふぇりちゃんと みらいのまち</span><span class="en">Feri and the Town of Tomorrow</span></span>
+          <span class="su"><span class="ja">〜ひとが つながる みらいのまち〜</span><span class="en">A town where people connect.</span></span>
+        </figcaption>
+      </figure></div>
+    </div>
+
+    <div class="arc">
+      <div class="arcbox"><span class="s">01</span><span class="b"><span class="ja"><strong>素材</strong><br>ありふれた黒いつぶに、ひかりがあった</span><span class="en"><strong>The material</strong><br>An ordinary black speck turns out to hold light</span></span></div>
+      <div class="arcbox"><span class="s">02</span><span class="b"><span class="ja"><strong>技術</strong><br>そのひかりが、世界をひろげていく</span><span class="en"><strong>The technology</strong><br>That light opens the world out</span></span></div>
+      <div class="arcbox"><span class="s">03</span><span class="b"><span class="ja"><strong>社会</strong><br>ひとがつながって、まちになる</span><span class="en"><strong>Society</strong><br>People connect, and a town is built</span></span></div>
+    </div>
+
+    <p class="muted" style="margin-top:22px">
+      <span class="ja">3部作は、素材から技術へ、技術から社会へという順番で書かれています。私たちが事業を進めたい順番と、同じです。</span>
+      <span class="en">The three books run from material to technology to society — the same order in which we intend to build the business.</span>
+    </p>
+
+    <h3 style="margin-top:48px"><span class="ja">Episode 1 より</span><span class="en">From Episode 1</span></h3>
     <div class="spreads">
       <div class="spread"><figure>
-        <img src="img/ehon-01.jpg" alt="ふぇりが生まれる場面" loading="lazy" decoding="async">
+        <img src="img/sp-01.jpg" alt="ふぇりが生まれる場面" loading="lazy" decoding="async">
         <figcaption><span class="ja"><b>ぼんっ!!!</b><br>けむりが消えると、そこに小さな黒いつぶがいました。</span><span class="en"><b>Bang!</b><br>When the smoke cleared, a small black speck was sitting there.</span></figcaption>
       </figure></div>
       <div class="spread"><figure>
-        <img src="img/ehon-02.jpg" alt="なかまが手をさしだす場面" loading="lazy" decoding="async">
+        <img src="img/sp-02.jpg" alt="なかまが手をさしだす場面" loading="lazy" decoding="async">
         <figcaption><span class="ja"><b>「ぼくで、いいの?」</b><br>「ふぇりがいい!」</span><span class="en"><b>“Are you sure you want me?”</b><br>“It has to be you.”</span></figcaption>
       </figure></div>
       <div class="spread"><figure>
-        <img src="img/ehon-03.jpg" alt="とべなかったけれど光った場面" loading="lazy" decoding="async">
+        <img src="img/sp-03.jpg" alt="とべなかったけれど光った場面" loading="lazy" decoding="async">
         <figcaption><span class="ja"><b>「……とべない。」</b><br>「でも、ひかった!」</span><span class="en"><b>“…I can't fly.”</b><br>“But you shone!”</span></figcaption>
       </figure></div>
     </div>
 
-    <p class="muted" style="margin-top:22px">
-      <span class="ja">キャラクター・作画：ちのーる（オリジナル）</span>
-      <span class="en">Characters and artwork: Chinoru (original)</span>
-    </p>
+    <p class="ja" style="margin-top:26px">工房には <strong>「しっぱいたからばこ」</strong> という箱があります。うまくいかなかったものを、捨てずに入れておく箱です。とべなかったふぇりに、なかまはこう言います。<strong>「でも、ひかった!」</strong></p>
+    <p class="en" style="margin-top:26px">In the workshop there is a box marked <strong>“the failure treasure chest.”</strong> Things that did not work are kept, not thrown away. And to the speck that could not fly, a friend says: <strong>“But you shone!”</strong></p>
+
+    <p class="muted"><span class="ja">キャラクター・作画：Fuwally（チーム内制作・オリジナル）</span><span class="en">Characters and artwork: Fuwally — original, made in-house</span></p>
   </section>
 
   <section id="about">
