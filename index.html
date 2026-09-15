@@ -8,6 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="HarmonyTEC Holdings">
 <meta property="og:description" content="Materials without the harmful elements, for industry worldwide.">
+<meta property="og:image" content="img/ehon-cover.jpg">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
@@ -352,6 +353,31 @@ a{color:var(--accent-ink)}
   letter-spacing:.08em; color:var(--accent); margin-bottom:6px;
 }
 .net .v{font-size:var(--fs-small); line-height:1.65}
+
+/* ─────────── picture book ─────────── */
+.bookwrap{display:grid; gap:clamp(22px,4vw,36px); margin-top:8px}
+@media(min-width:760px){.bookwrap{grid-template-columns:300px 1fr; align-items:start}}
+.cover{
+  border-radius:4px; overflow:hidden; box-shadow:var(--shadow);
+  border:1px solid var(--rule); background:var(--card);
+}
+.cover img{display:block; width:100%; height:auto}
+.tagline{
+  margin-top:14px; text-align:center;
+  font-family:var(--ff-mono); font-size:.72rem; letter-spacing:.06em;
+  color:var(--ink-3); line-height:1.7;
+}
+.spreads{display:grid; gap:16px; margin-top:32px}
+@media(min-width:620px){.spreads{grid-template-columns:repeat(3,1fr)}}
+.spread figure{margin:0}
+.spread img{
+  display:block; width:100%; height:auto; border-radius:3px;
+  border:1px solid var(--rule); background:var(--card);
+}
+.spread figcaption{
+  margin-top:9px; font-size:.78rem; line-height:1.7; color:var(--ink-3);
+}
+.spread figcaption b{color:var(--ink-2); font-weight:700}
 
 /* ─────────── org tree ─────────── */
 .tree{margin-top:30px; font-size:var(--fs-small)}
@@ -779,54 +805,53 @@ footer a{color:var(--ink-2)}
 
   <section id="ehon">
     <p class="eyebrow"><span class="ja">はじめての方へ</span><span class="en">For everyone else</span></p>
-    <div class="ehon">
-      <svg class="tetchan" width="176" height="176" viewBox="0 0 176 176" role="img" aria-labelledby="ft">
-        <title id="ft">Feri — a small iron particle with light inside</title>
-        <defs>
-          <radialGradient id="fg" cx="36%" cy="30%" r="78%">
-            <stop offset="0%" stop-color="#4a4a52"/>
-            <stop offset="55%" stop-color="#22222a"/>
-            <stop offset="100%" stop-color="#111116"/>
-          </radialGradient>
-        </defs>
-        <!-- sprout -->
-        <path d="M88 32 C88 20 94 12 103 9" stroke="#1F6B5B" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <ellipse cx="106" cy="8" rx="8" ry="5.5" fill="#2E8F78" transform="rotate(-22 106 8)"/>
-        <!-- body -->
-        <circle cx="88" cy="92" r="52" fill="url(#fg)"/>
-        <!-- sparkle flecks -->
-        <circle cx="64" cy="120" r="1.8" fill="#EDEFEA" opacity=".75"/>
-        <circle cx="112" cy="126" r="1.4" fill="#EDEFEA" opacity=".6"/>
-        <circle cx="122" cy="98" r="1.6" fill="#EDEFEA" opacity=".55"/>
-        <circle cx="54" cy="92" r="1.3" fill="#EDEFEA" opacity=".5"/>
-        <!-- eyes -->
-        <ellipse cx="70" cy="84" rx="15" ry="17" fill="#fff"/>
-        <ellipse cx="107" cy="84" rx="15" ry="17" fill="#fff"/>
-        <ellipse cx="71" cy="86" rx="9" ry="10.5" fill="#15151b"/>
-        <ellipse cx="108" cy="86" rx="9" ry="10.5" fill="#15151b"/>
-        <path d="M71 78 l2.2 4.6 4.8 .7 -3.5 3.4 .9 4.9 -4.4-2.4 -4.4 2.4 .9-4.9 -3.5-3.4 4.8-.7z" fill="#FFE9A8"/>
-        <path d="M108 78 l2.2 4.6 4.8 .7 -3.5 3.4 .9 4.9 -4.4-2.4 -4.4 2.4 .9-4.9 -3.5-3.4 4.8-.7z" fill="#FFE9A8"/>
-        <!-- mouth -->
-        <path d="M82 108 q6 9 13 0 q-6 4 -13 0z" fill="#C4566A"/>
-        <!-- cheeks -->
-        <ellipse cx="53" cy="104" rx="8" ry="5" fill="#C86A5A" opacity=".45"/>
-        <ellipse cx="124" cy="104" rx="8" ry="5" fill="#C86A5A" opacity=".45"/>
-        <!-- feet -->
-        <ellipse cx="68" cy="146" rx="13" ry="9" fill="#1b1b22"/>
-        <ellipse cx="108" cy="146" rx="13" ry="9" fill="#1b1b22"/>
-      </svg>
+    <h2><span class="ja">この研究には、絵本があります。</span><span class="en">This research has a picture book.</span></h2>
+
+    <div class="bookwrap">
       <div>
-        <h2><span class="ja">研究者がつくった絵本があります。</span><span class="en">The researchers wrote a picture book.</span></h2>
+        <div class="cover">
+          <img src="img/ehon-cover.jpg" alt="てつのようせい ふぇり — 表紙" loading="lazy" decoding="async">
+        </div>
+        <p class="tagline">ちいさな ふしぎが せかいを かえる<br>Small Wonders, A Brighter World.</p>
+      </div>
+
+      <div>
         <p class="ja"><strong>『てつのようせい ふぇり』</strong>　〜ぼくにも、ひかりがあった。〜</p>
         <p class="en"><strong>“Feri, the Iron Fairy”</strong> — <em>There was light in me after all.</em></p>
-        <p class="ja">ようせいの工房で、ある日ぼんっと生まれた、ちいさな黒いつぶ。じぶんには何もないと思っていたけれど、ほんとうは、ひかりを持っていた——という話です。難しい言葉はひとつも出てきません。</p>
-        <p class="en">One day, in a fairy's workshop, a small black speck comes into the world with a bang. It believes it has nothing to offer. It turns out to have had light in it all along. Not one technical term appears in the book.</p>
-        <p class="ja">表紙には、こう書いてあります。<strong>「ちいさな ふしぎが せかいを かえる」</strong></p>
-        <p class="en">On the cover: <strong>“A small wonder changes the world.”</strong></p>
-        <p class="ja">科学は、子どもに説明できたときに、はじめて社会のものになると考えています。</p>
-        <p class="en">We think science only belongs to society once it can be explained to a child.</p>
+
+        <p class="ja">ようせいの工房で、ある日ぼんっと生まれた、ちいさな黒いつぶ。とぼうとして落ち、うまくいかなくて泣きます。「ぼく、なにもできないよ」と言うふぇりに、なかまが手をさしだす——そういう話です。</p>
+        <p class="en">A small black speck comes into the world with a bang in a fairy's workshop. It tries to fly and falls. It cannot do the thing it wanted to do, and it cries. When it says “I'm no use to anyone,” someone reaches out a hand.</p>
+
+        <p class="ja">工房には <strong>「しっぱいたからばこ」</strong> という箱があります。うまくいかなかったものを、捨てずに入れておく箱です。</p>
+        <p class="en">In the workshop there is a box marked <strong>“the failure treasure chest.”</strong> Things that did not work are not thrown away. They are kept.</p>
+
+        <p class="ja">とべなかったふぇりに、なかまがこう言います。<strong>「でも、ひかった!」</strong></p>
+        <p class="en">And to the speck that could not fly, a friend says: <strong>“But you shone!”</strong></p>
+
+        <p class="ja">研究とは、そういうものだと思っています。難しい言葉は、この本にひとつも出てきません。</p>
+        <p class="en">That, we think, is what research is. Not one technical term appears in the book.</p>
       </div>
     </div>
+
+    <div class="spreads">
+      <div class="spread"><figure>
+        <img src="img/ehon-01.jpg" alt="ふぇりが生まれる場面" loading="lazy" decoding="async">
+        <figcaption><span class="ja"><b>ぼんっ!!!</b><br>けむりが消えると、そこに小さな黒いつぶがいました。</span><span class="en"><b>Bang!</b><br>When the smoke cleared, a small black speck was sitting there.</span></figcaption>
+      </figure></div>
+      <div class="spread"><figure>
+        <img src="img/ehon-02.jpg" alt="なかまが手をさしだす場面" loading="lazy" decoding="async">
+        <figcaption><span class="ja"><b>「ぼくで、いいの?」</b><br>「ふぇりがいい!」</span><span class="en"><b>“Are you sure you want me?”</b><br>“It has to be you.”</span></figcaption>
+      </figure></div>
+      <div class="spread"><figure>
+        <img src="img/ehon-03.jpg" alt="とべなかったけれど光った場面" loading="lazy" decoding="async">
+        <figcaption><span class="ja"><b>「……とべない。」</b><br>「でも、ひかった!」</span><span class="en"><b>“…I can't fly.”</b><br>“But you shone!”</span></figcaption>
+      </figure></div>
+    </div>
+
+    <p class="muted" style="margin-top:22px">
+      <span class="ja">キャラクター・作画：ちのーる（オリジナル）</span>
+      <span class="en">Characters and artwork: Chinoru (original)</span>
+    </p>
   </section>
 
   <section id="about">
