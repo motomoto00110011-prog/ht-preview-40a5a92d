@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="ja" data-lang="ja">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="鉄と酸素と硫黄だけで、常温・常圧の水からナノ材料をつくる。カドミウム・鉛・水銀・インジウムを使わない鉄系ナノ材料プラットフォーム。">
+<meta name="description" content="HarmonyTEC Holdings (provisional) — an iron-based nanomaterial platform made in water at ambient temperature, free of cadmium, lead, mercury and indium.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HarmonyTEC Alliance">
-<meta property="og:description" content="鉄と酸素と硫黄だけで、常温・常圧の水からナノ材料をつくる。">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="HarmonyTEC Holdings">
+<meta property="og:description" content="Iron, oxygen, sulfur. Nanomaterials grown in water at ambient temperature and pressure.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <style>
 :root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -17,7 +17,7 @@ body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
 </style>
-<title>HarmonyTEC Alliance</title>
+<title>HarmonyTEC Holdings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -284,6 +284,75 @@ a{color:var(--accent-ink)}
 .reg-row.key time{color:var(--iron)}
 .reg-row.key p{font-weight:700}
 
+/* ─────────── org tree ─────────── */
+.tree{margin-top:30px; font-size:var(--fs-small)}
+.tree ul{list-style:none; margin:0; padding-left:clamp(16px,4vw,28px)}
+.tree > ul{padding-left:0}
+.tree li{position:relative; padding:5px 0}
+.tree > ul > li{padding-bottom:0}
+.tree ul ul > li::before{
+  content:""; position:absolute; left:calc(-1 * clamp(16px,4vw,28px) / 2);
+  top:0; bottom:50%; width:1px; background:var(--rule);
+}
+.tree ul ul > li::after{
+  content:""; position:absolute; left:calc(-1 * clamp(16px,4vw,28px) / 2);
+  top:50%; width:calc(clamp(16px,4vw,28px) / 2 - 4px); height:1px; background:var(--rule);
+}
+.tree ul ul > li:last-child::before{bottom:50%}
+.tree ul ul > li:not(:last-child)::before{bottom:calc(-1 * 5px)}
+.node{
+  display:inline-flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+  padding:8px 14px; border:1px solid var(--rule); border-radius:3px;
+  background:var(--card);
+}
+.node .t{font-weight:700}
+.node .d{color:var(--ink-3); font-size:.75rem}
+.node.root{
+  background:var(--ink); color:var(--paper); border-color:var(--ink);
+  font-family:var(--ff-disp); padding:11px 18px;
+}
+.node.root .d{color:var(--ink-3)}
+.node.l1{border-left:3px solid var(--accent)}
+.node.l2{background:var(--paper-2); border-left:3px solid var(--rule)}
+.node.l3{background:transparent; border-style:dashed}
+
+/* ─────────── plan / horizons ─────────── */
+.horizons{display:grid; gap:16px; margin-top:30px}
+@media(min-width:820px){.horizons{grid-template-columns:repeat(3,1fr)}}
+.hz{
+  border:1px solid var(--rule); border-radius:4px; padding:20px;
+  background:var(--card); display:flex; flex-direction:column; gap:10px;
+}
+.hz .when{
+  font-family:var(--ff-mono); font-size:var(--fs-mono);
+  letter-spacing:.08em; color:var(--accent);
+}
+.hz h3{margin:0; font-family:var(--ff-disp); font-size:1.1rem}
+.hz ul{margin:0; padding-left:1.1em}
+.hz li{font-size:var(--fs-small); color:var(--ink-2); margin-bottom:.4em}
+.hz li::marker{color:var(--accent)}
+.hz .need{
+  margin-top:auto; padding-top:12px; border-top:1px solid var(--rule);
+  font-size:.75rem; color:var(--ink-3);
+}
+.chain{
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+  margin-top:28px; padding:18px 20px; border-radius:4px;
+  background:var(--paper-2); border:1px solid var(--rule);
+  font-size:var(--fs-small);
+}
+.chain b{font-weight:700}
+.chain .arw{color:var(--ink-3); font-family:var(--ff-mono)}
+.asks{margin-top:28px; border-top:1px solid var(--rule)}
+.ask{
+  display:grid; grid-template-columns:auto 1fr; gap:clamp(12px,3vw,20px);
+  padding:15px 0; border-bottom:1px solid var(--rule); align-items:baseline;
+}
+.ask .n{
+  font-family:var(--ff-mono); font-size:var(--fs-mono); color:var(--accent);
+}
+.ask p{margin:0; font-size:var(--fs-small)}
+
 /* ─────────── verification ─────────── */
 .tests{display:grid; gap:14px; margin-top:28px}
 @media(min-width:680px){.tests{grid-template-columns:1fr 1fr}}
@@ -356,19 +425,21 @@ footer a{color:var(--ink-2)}
 </head>
 <body>
 <div class="draft">
-  <span class="ja">デザイン案 v1 ／ 内部レビュー用 ── 掲載内容は確定前です</span>
-  <span class="en">DRAFT v1 — for internal review. Content not final.</span>
+  <span class="ja">ハーモニーテック・ホールディングス（仮称）は設立準備中です ／ デザイン案 v2・内部レビュー用</span>
+  <span class="en">HarmonyTEC Holdings (provisional name) is in formation ／ Design draft v2 — internal review</span>
 </div>
 
 <header>
   <div class="hwrap">
-    <a class="brand" href="#top"><span class="mark"></span><b>HarmonyTEC</b></a>
+    <a class="brand" href="#top"><span class="mark"></span><b>HarmonyTEC HD</b></a>
     <nav>
       <a href="#people"><span class="ja">研究者</span><span class="en">People</span></a>
       <a href="#work"><span class="ja">技術</span><span class="en">Technology</span></a>
       <a href="#materials"><span class="ja">材料</span><span class="en">Materials</span></a>
+      <a href="#plan"><span class="ja">事業の道筋</span><span class="en">Plan</span></a>
       <a href="#verify"><span class="ja">検証</span><span class="en">Verification</span></a>
-      <a href="#contact"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+      <a href="#limits"><span class="ja">限界</span><span class="en">Limits</span></a>
+      <a href="#contact"><span class="ja">連絡</span><span class="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
       <button id="lang-ja" type="button" aria-pressed="true">JA</button>
@@ -386,12 +457,12 @@ footer a{color:var(--ink-2)}
       <span class="en">Iron, oxygen, sulfur.<br>Nothing else.</span>
     </h1>
     <p class="lede">
-      <span class="ja">常温・常圧の水から、ナノ材料をつくる。カドミウムも、鉛も、水銀も、インジウムも使わずに。</span>
-      <span class="en">Nanomaterials grown in water, at ambient temperature and pressure — with no cadmium, lead, mercury or indium.</span>
+      <span class="ja">常温・常圧の水から、ナノ材料をつくる。カドミウムも、鉛も、水銀も、インジウムも使わずに。<br>規制に追われている材料の、規制に追われない代替として。</span>
+      <span class="en">Nanomaterials grown in water, at ambient temperature and pressure — with no cadmium, lead, mercury or indium. An alternative for materials that regulation is closing in on.</span>
     </p>
     <div class="cta">
-      <a class="btn" href="#contact"><span class="ja">サンプル・共同評価のご相談</span><span class="en">Request a sample</span></a>
-      <a class="btn ghost" href="#work"><span class="ja">技術を見る</span><span class="en">See the technology</span></a>
+      <a class="btn" href="#contact"><span class="ja">事業計画・技術資料のご請求</span><span class="en">Request the deck</span></a>
+      <a class="btn ghost" href="#plan"><span class="ja">事業の道筋を見る</span><span class="en">See the plan</span></a>
     </div>
     <div class="formula">
       <span><b>FeSO₄·7H₂O</b> <span class="ja">硫酸鉄</span><span class="en">iron sulfate</span></span>
@@ -655,6 +726,75 @@ footer a{color:var(--ink-2)}
     </p>
   </section>
 
+  <!-- ─── PLAN ─── -->
+  <section id="plan">
+    <p class="eyebrow"><span class="ja">事業の道筋</span><span class="en">The plan</span></p>
+    <h2>
+      <span class="ja">発光を必要としない事業から、始めます。</span>
+      <span class="en">We start with the businesses that need no light.</span>
+    </h2>
+    <p class="lede">
+      <span class="ja">同じ工程から出る二つの材料は、成熟度が違います。確実なほうで収益を立て、その間にもう一方を検証します。</span>
+      <span class="en">The two materials from our process are at different stages of maturity. We earn from the settled one while the other is put to the test.</span>
+    </p>
+
+    <div class="horizons">
+      <article class="hz">
+        <span class="when">0–3 <span class="ja">年</span><span class="en">yrs</span></span>
+        <h3><span class="ja">現金と実績をつくる</span><span class="en">Cash and evidence</span></h3>
+        <ul>
+          <li><span class="ja">磁気分離・免疫磁気ビーズ（Fe₃O₄）</span><span class="en">Magnetic separation and immunomagnetic beads (Fe₃O₄)</span></li>
+          <li><span class="ja">獣医療での共同研究</span><span class="en">Veterinary collaboration</span></li>
+          <li><span class="ja">受託合成・研究試薬</span><span class="en">Custom synthesis and research reagents</span></li>
+        </ul>
+        <p class="need"><span class="ja">発光の性能を必要としません。</span><span class="en">Requires no optical performance.</span></p>
+      </article>
+
+      <article class="hz">
+        <span class="when">3–7 <span class="ja">年</span><span class="en">yrs</span></span>
+        <h3><span class="ja">材料として採用される</span><span class="en">Designed into products</span></h3>
+        <ul>
+          <li><span class="ja">短波長赤外の光検出材料</span><span class="en">Shortwave-infrared photodetection materials</span></li>
+          <li><span class="ja">オンチップ NDIR ガスセンシング</span><span class="en">On-chip NDIR gas sensing</span></li>
+          <li><span class="ja">前臨床イメージング用途</span><span class="en">Preclinical imaging</span></li>
+        </ul>
+        <p class="need"><span class="ja">検証（右）の結果に依存します。</span><span class="en">Conditional on the verification programme.</span></p>
+      </article>
+
+      <article class="hz">
+        <span class="when">7 <span class="ja">年〜</span><span class="en">yrs +</span></span>
+        <h3><span class="ja">ライセンスで広げる</span><span class="en">Licensing</span></h3>
+        <ul>
+          <li><span class="ja">製法特許のライセンス供与</span><span class="en">Licensing the production-method patents</span></li>
+          <li><span class="ja">用途別の共同開発</span><span class="en">Application-specific joint development</span></li>
+        </ul>
+        <p class="need"><span class="ja">量産は委託します。自社工場は持ちません。</span><span class="en">Manufacturing is outsourced. We do not intend to build a plant.</span></p>
+      </article>
+    </div>
+
+    <div class="chain">
+      <b><span class="ja">受託合成・試薬</span><span class="en">Custom synthesis</span></b>
+      <span class="arw" aria-hidden="true">→</span>
+      <b><span class="ja">材料販売</span><span class="en">Material sales</span></b>
+      <span class="arw" aria-hidden="true">→</span>
+      <b><span class="ja">ライセンス</span><span class="en">Licensing</span></b>
+      <span class="arw" aria-hidden="true">→</span>
+      <b><span class="ja">共同開発</span><span class="en">Joint development</span></b>
+    </div>
+
+    <h3 style="margin-top:44px"><span class="ja">当面の資金使途</span><span class="en">Use of funds</span></h3>
+    <div class="asks">
+      <div class="ask"><span class="n">01</span>
+        <p><span class="ja">第三者機関による検証プログラムの完了（下記 T1–T4）</span><span class="en">Completing the independent verification programme (T1–T4 below)</span></p></div>
+      <div class="ask"><span class="n">02</span>
+        <p><span class="ja">材料・光学分野の研究者の採用。現在のチームはフェライト化学と磁性材料が中心で、光学の専門家を必要としています</span><span class="en">Hiring researchers in materials and optics. The present team is centred on ferrite chemistry and magnetics, and needs optical expertise</span></p></div>
+      <div class="ask"><span class="n">03</span>
+        <p><span class="ja">知的財産の整理。製法特許は共同出願であり、実施許諾には共有者全員の同意が必要です</span><span class="en">Consolidating intellectual property. The method patents are co-filed, and licensing requires the consent of all co-owners</span></p></div>
+      <div class="ask"><span class="n">04</span>
+        <p><span class="ja">ホールディングスの設立と、知的財産の適正な移管</span><span class="en">Incorporating the holding company and transferring the intellectual property on arm's-length terms</span></p></div>
+    </div>
+  </section>
+
   <!-- ─── VERIFY ─── -->
   <section id="verify">
     <p class="eyebrow"><span class="ja">検証していること</span><span class="en">What we are verifying</span></p>
@@ -729,26 +869,91 @@ footer a{color:var(--ink-2)}
 
   <!-- ─── ORG ─── -->
   <section id="about">
-    <p class="eyebrow"><span class="ja">組織</span><span class="en">Organisation</span></p>
-    <h2><span class="ja">ハーモニーテック・アライアンス</span><span class="en">HarmonyTEC Alliance</span></h2>
+    <p class="eyebrow"><span class="ja">会社概要</span><span class="en">The company</span></p>
+    <h2><span class="ja">ハーモニーテック・ホールディングス（仮称）</span><span class="en">HarmonyTEC Holdings <span style="font-weight:600">(provisional)</span></span></h2>
     <p>
-      <span class="ja">企業の枠にとらわれないオープンイノベーション体制で、未踏の産業技術を集約し、地球環境の修復と保全に資する材料を社会に実装することを目的としています。</span>
-      <span class="en">An open-innovation body, unbound by corporate boundaries, formed to gather unexplored industrial technologies and bring materials that help restore and preserve the environment into real use.</span>
+      <span class="ja">研究開発、知的財産、事業化をひとつの持株会社のもとに束ね、鉄系ナノ材料を世界の産業へ供給することを目的として、設立準備を進めています。</span>
+      <span class="en">A holding company being formed to bring research, intellectual property and commercialisation under one roof, and to supply iron-based nanomaterials to industry worldwide.</span>
     </p>
 
     <dl class="facts">
-      <div class="fact"><dt><span class="ja">正式名称</span><span class="en">Legal name</span></dt>
-        <dd><span class="ja">一般社団法人 未踏サイエンスに基づく環境調和型産業振興会</span><span class="en">Association for the Promotion of Environmentally Harmonious Industry Based on Unexplored Science (general incorporated association)</span></dd></div>
-      <div class="fact"><dt><span class="ja">設立</span><span class="en">Established</span></dt><dd>2024.06.28</dd></div>
-      <div class="fact"><dt><span class="ja">代表理事</span><span class="en">Representative Director</span></dt>
-        <dd><span class="ja">玉浦 裕（東京科学大学 名誉教授）</span><span class="en">Yutaka Tamaura, Professor Emeritus, Institute of Science Tokyo</span></dd></div>
-      <div class="fact"><dt><span class="ja">所在地</span><span class="en">Address</span></dt>
-        <dd><span class="ja">〒103-0022 東京都中央区日本橋室町 1-7-1 スルガビル 7F</span><span class="en">Suruga Building 7F, 1-7-1 Nihonbashi-Muromachi, Chuo-ku, Tokyo 103-0022, Japan</span></dd></div>
+      <div class="fact"><dt><span class="ja">状況</span><span class="en">Status</span></dt>
+        <dd><span class="ja"><strong>設立準備中。</strong>まだ登記されていません。</span><span class="en"><strong>In formation.</strong> Not yet incorporated.</span></dd></div>
+      <div class="fact"><dt><span class="ja">拠点</span><span class="en">Based in</span></dt>
+        <dd><span class="ja">東京</span><span class="en">Tokyo, Japan</span></dd></div>
+      <div class="fact"><dt><span class="ja">技術の源流</span><span class="en">Origin of the technology</span></dt>
+        <dd><span class="ja">玉浦 裕（東京科学大学 名誉教授）が1984年に見出したグリーンラスト化学</span><span class="en">Green rust chemistry, discovered in 1984 by Yutaka Tamaura, Professor Emeritus, Institute of Science Tokyo</span></dd></div>
       <div class="fact"><dt><span class="ja">関連知財</span><span class="en">Related IP</span></dt>
-        <dd><span class="ja">製法特許を国際出願中（PCT/WO2026/038541・038542、出願人：合同会社玉浦ラボ ほか）。本法人は出願人ではありません。</span><span class="en">Production-method patents filed internationally (PCT/WO2026/038541 and 038542; applicant: Tamaura Labo LLC and co-applicants). The Alliance is not an applicant.</span></dd></div>
-      <div class="fact"><dt><span class="ja">研究設備</span><span class="en">Research facilities</span></dt>
+        <dd><span class="ja"><strong>製法特許</strong>を国際出願中（PCT/WO2026/038541・038542）。出願人は合同会社玉浦ラボほか共同出願人。物質特許はありません。実施許諾には共有者全員の同意を要します。</span><span class="en"><strong>Production-method patents</strong> filed internationally (PCT/WO2026/038541 and 038542). Applicant: Tamaura Labo LLC with co-applicants. There is no composition-of-matter claim. Licensing requires the consent of all co-owners.</span></dd></div>
+      <div class="fact"><dt><span class="ja">研究連携</span><span class="en">Research partners</span></dt>
+        <dd><span class="ja">東京科学大学 複数研究室／東京大学</span><span class="en">Several laboratories at Institute of Science Tokyo; The University of Tokyo</span></dd></div>
+      <div class="fact"><dt><span class="ja">研究設備</span><span class="en">Facilities used</span></dt>
         <dd><span class="ja">SPring-8 BL23SU（軟X線光電子分光）ほか</span><span class="en">SPring-8 BL23SU (soft X-ray photoemission), among others</span></dd></div>
+      <div class="fact"><dt><span class="ja">論文</span><span class="en">Publication</span></dt>
+        <dd><span class="ja">プレプリント公開済み。<strong>査読前</strong>であり、査読誌に投稿準備中です。</span><span class="en">Preprint posted. <strong>Not peer reviewed;</strong> submission to a journal is in preparation.</span></dd></div>
     </dl>
+
+    <h3 style="margin-top:44px"><span class="ja">組織（設立時の構想）</span><span class="en">Organisation as planned at incorporation</span></h3>
+    <div class="tree">
+      <ul>
+        <li>
+          <span class="node root"><span class="t"><span class="ja">ハーモニーテック・ホールディングス</span><span class="en">HarmonyTEC Holdings</span></span><span class="d"><span class="ja">仮称・設立準備中</span><span class="en">provisional · in formation</span></span></span>
+          <ul>
+            <li><span class="node l1"><span class="t"><span class="ja">事業領域（ストアタワー）</span><span class="en">Business Operations — “Store Tower”</span></span><span class="d"><span class="ja">材料の製造・供給</span><span class="en">production and supply</span></span></span></li>
+            <li><span class="node l1"><span class="t"><span class="ja">研究所</span><span class="en">Research Institute</span></span><span class="d"><span class="ja">研究者が自由に使う場所</span><span class="en">a place for researchers to work freely</span></span></span></li>
+            <li><span class="node l1"><span class="t"><span class="ja">金融事業部</span><span class="en">Finance Division</span></span><span class="d"><span class="ja">資本政策・財務</span><span class="en">capital and treasury</span></span></span></li>
+            <li>
+              <span class="node l1"><span class="t"><span class="ja">戦略事業部</span><span class="en">Strategy Division</span></span></span>
+              <ul>
+                <li><span class="node l2"><span class="t"><span class="ja">グローバル戦略室</span><span class="en">Global Strategy Office</span></span></span></li>
+                <li>
+                  <span class="node l2"><span class="t"><span class="ja">法務部</span><span class="en">Legal Department</span></span></span>
+                  <ul>
+                    <li><span class="node l3"><span class="t"><span class="ja">契約部門</span><span class="en">Contracts</span></span></span></li>
+                    <li><span class="node l3"><span class="t"><span class="ja">リスク管理</span><span class="en">Risk Management</span></span></span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p class="muted" style="margin-top:18px">
+      <span class="ja">※ 設立時に予定している組織構成です。現時点で稼働している部門はありません。</span>
+      <span class="en">This is the structure planned at incorporation. No division is operating yet.</span>
+    </p>
+  </section>
+
+  <!-- ─── WHAT WE DO NOT CLAIM ─── -->
+  <section id="limits">
+    <p class="eyebrow"><span class="ja">主張しないこと</span><span class="en">What we do not claim</span></p>
+    <h2>
+      <span class="ja">できないことを、先に申し上げます。</span>
+      <span class="en">Here is what this material cannot do.</span>
+    </h2>
+    <p class="lede">
+      <span class="ja">量子ドットという言葉は、しばしば実態より広く使われます。私たちが対象としない市場と、その理由を明記します。</span>
+      <span class="en">“Quantum dot” is a term that often travels further than the physics. These are the markets we are not pursuing, and why.</span>
+    </p>
+
+    <div class="reg">
+      <div class="reg-row"><time><span class="ja">ディスプレイ</span><span class="en">Displays</span></time>
+        <p><span class="ja">この材料の発光帯は目に見えません。輝度は放射強度に関わらずゼロです。</span><span class="en">This material emits outside the visible range. Luminance is zero regardless of radiant power.</span></p></div>
+      <div class="reg-row"><time><span class="ja">リチウム電池負極</span><span class="en">Li-ion anodes</span></time>
+        <p><span class="ja">酸化鉄負極は黒鉛より約1.5V高い電位で動作するため、フルセルのエネルギー密度が黒鉛を下回ります。</span><span class="en">An iron-oxide anode operates about 1.5 V above graphite, so the full cell ends up less energy-dense than the graphite cell it would replace.</span></p></div>
+      <div class="reg-row"><time><span class="ja">太陽電池の変換層</span><span class="en">Solar downshifting</span></time>
+        <p><span class="ja">シリコンの吸収限界より長波長のため、シリコン太陽電池では損失になります。</span><span class="en">The emission sits beyond silicon’s absorption edge, so it would be a loss channel in a silicon cell.</span></p></div>
+      <div class="reg-row"><time><span class="ja">CMOS前工程</span><span class="en">CMOS front-end</span></time>
+        <p><span class="ja">鉄は半導体前工程の代表的な汚染元素です。想定しているのは後工程の専用ラインのみです。</span><span class="en">Iron is a controlled contaminant in silicon front-end processing. We target back-end, segregated lines only.</span></p></div>
+      <div class="reg-row"><time><span class="ja">量子計算・QKD</span><span class="en">Quantum computing, QKD</span></time>
+        <p><span class="ja">単一光子性ともつれは測定していません。現行のQKDは減衰レーザーで動作しており、単一光子源を必要としていません。</span><span class="en">We have not measured single-photon purity or entanglement. Deployed QKD runs on attenuated lasers and does not buy single-photon sources.</span></p></div>
+    </div>
+
+    <div class="note" style="border-left-color:var(--iron)">
+      <p class="ja">私たちが主張するのは、<strong>製造プロセス</strong>と<strong>規制上の立ち位置</strong>の二つだけです。それ以外は、測定の結果に従います。</p>
+      <p class="en">We make two claims only: the <strong>process</strong>, and the <strong>regulatory position</strong>. Everything else follows the measurements.</p>
+    </div>
   </section>
 
   <!-- ─── NEWS ─── -->
@@ -769,11 +974,11 @@ footer a{color:var(--ink-2)}
 
   <!-- ─── CONTACT ─── -->
   <section id="contact">
-    <p class="eyebrow"><span class="ja">お問い合わせ</span><span class="en">Contact</span></p>
-    <h2><span class="ja">サンプルをお送りします。</span><span class="en">We will send you a sample.</span></h2>
+    <p class="eyebrow"><span class="ja">お問い合わせ</span><span class="en">Get in touch</span></p>
+    <h2><span class="ja">資料をお送りします。</span><span class="en">We will send you the material.</span></h2>
     <p class="lede">
-      <span class="ja">評価用のサンプルは無償でご提供します。「これを満たせば検討対象になる」という御社の閾値を、あわせてお聞かせください。</span>
-      <span class="en">Evaluation samples are supplied free of charge. Tell us the threshold your application would need us to meet, and we will aim at it.</span>
+      <span class="ja">事業計画、技術資料、検証プログラムの詳細、特許の書誌事項をご用意しています。英語で対応します。</span>
+      <span class="en">Business plan, technical documentation, the full verification protocol and patent bibliographic data are available on request. We correspond in English.</span>
     </p>
 
     <form id="contact-form">
@@ -782,7 +987,7 @@ footer a{color:var(--ink-2)}
         <input id="f-name" name="name" type="text" autocomplete="name" required>
       </div>
       <div class="field">
-        <label for="f-org"><span class="ja">ご所属</span><span class="en">Organisation</span></label>
+        <label for="f-org"><span class="ja">ご所属</span><span class="en">Firm / organisation</span></label>
         <input id="f-org" name="org" type="text" autocomplete="organization">
       </div>
       <div class="field">
@@ -791,9 +996,7 @@ footer a{color:var(--ink-2)}
       </div>
       <div class="field">
         <label for="f-topic"><span class="ja">ご用件</span><span class="en">Subject</span></label>
-        <select id="f-topic" name="topic">
-          <option><span class="ja">サンプル請求</span></option>
-        </select>
+        <select id="f-topic" name="topic"></select>
       </div>
       <div class="field">
         <label for="f-msg"><span class="ja">ご用件の詳細</span><span class="en">Message</span></label>
@@ -801,14 +1004,14 @@ footer a{color:var(--ink-2)}
       </div>
       <button type="submit"><span class="ja">送信する</span><span class="en">Send</span></button>
       <p class="muted" style="margin-top:14px" id="form-note">
-        <span class="ja">※ デザイン案のため、このフォームはまだ送信されません。実装時に Contact Form 7 などを接続します。</span>
-        <span class="en">Note: this is a design draft — the form does not send yet. A mail backend will be connected at build time.</span>
+        <span class="ja">※ デザイン案のため、このフォームはまだ送信されません。</span>
+        <span class="en">Note: this is a design draft — the form does not send yet.</span>
       </p>
     </form>
 
     <p class="muted" style="margin-top:26px">
-      <span class="ja">直接のご連絡：<a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a>　／　TEL 03-6824-4131（英語対応可）</span>
-      <span class="en">Or write directly: <a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a> · Tel +81-3-6824-4131 (English welcome)</span>
+      <span class="ja">直接のご連絡：<a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a></span>
+      <span class="en">Or write directly: <a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a></span>
     </p>
   </section>
 </main>
@@ -816,14 +1019,14 @@ footer a{color:var(--ink-2)}
 <footer>
   <div class="fwrap">
     <div>
-      <p class="ja"><strong>一般社団法人 未踏サイエンスに基づく環境調和型産業振興会</strong><br>
-      通称 ハーモニーテック・アライアンス<br>
-      〒103-0022 東京都中央区日本橋室町 1-7-1 スルガビル 7F</p>
-      <p class="en"><strong>HarmonyTEC Alliance</strong><br>
-      Association for the Promotion of Environmentally Harmonious Industry Based on Unexplored Science<br>
-      Suruga Building 7F, 1-7-1 Nihonbashi-Muromachi, Chuo-ku, Tokyo 103-0022, Japan</p>
+      <p class="ja"><strong>ハーモニーテック・ホールディングス（仮称）</strong><br>
+      設立準備中 ／ 東京<br>
+      <a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a></p>
+      <p class="en"><strong>HarmonyTEC Holdings</strong> (provisional name)<br>
+      In formation · Tokyo, Japan<br>
+      <a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a></p>
     </div>
-    <p>© 2026 HarmonyTEC Alliance</p>
+    <p>© 2026</p>
   </div>
 </footer>
 
@@ -846,15 +1049,15 @@ footer a{color:var(--ink-2)}
   if (!saved) {
     saved = (navigator.language || '').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en';
   }
-  setLang(saved === 'en' ? 'en' : 'ja');
+  setLang(saved === 'ja' ? 'ja' : 'en');
 
   bJa.addEventListener('click', function(){ setLang('ja'); });
   bEn.addEventListener('click', function(){ setLang('en'); });
 
   // Subject options need real per-language labels, so build them in JS.
   var topics = {
-    ja: ['サンプル請求', '共同評価・共同研究', '技術資料のご請求', 'ライセンス・事業提携', '取材・講演', 'その他'],
-    en: ['Request a sample', 'Joint evaluation or research', 'Technical documentation', 'Licensing or partnership', 'Press and speaking', 'Other']
+    ja: ['投資に関するお問い合わせ', '事業計画・技術資料のご請求', '共同評価・共同研究', 'サンプル請求', 'ライセンス・事業提携', 'その他'],
+    en: ['Investor enquiry', 'Request business plan or technical documentation', 'Joint evaluation or research', 'Request a sample', 'Licensing or partnership', 'Other']
   };
   var sel = document.getElementById('f-topic');
   function fillTopics(){
