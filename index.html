@@ -284,6 +284,30 @@ a{color:var(--accent-ink)}
 .reg-row.key time{color:var(--iron)}
 .reg-row.key p{font-weight:700}
 
+/* ─────────── people extras ─────────── */
+.cred{
+  margin-top:26px; padding:18px 20px; border-radius:4px;
+  background:var(--card); border:1px solid var(--rule); box-shadow:var(--shadow);
+}
+.cred h3{font-family:var(--ff-disp); font-size:1.05rem; margin-bottom:.4em}
+.cred p{margin:0 0 .6em; font-size:var(--fs-small); color:var(--ink-2); max-width:70ch}
+.cred p:last-child{margin-bottom:0}
+.cred cite{font-style:normal; font-family:var(--ff-mono); font-size:.74rem; color:var(--ink-3)}
+
+.network{
+  display:grid; gap:14px; margin-top:26px;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+}
+.net{
+  padding:15px 17px; border-radius:4px;
+  background:var(--paper-2); border:1px solid var(--rule);
+}
+.net .k{
+  display:block; font-family:var(--ff-mono); font-size:var(--fs-mono);
+  letter-spacing:.08em; color:var(--accent); margin-bottom:6px;
+}
+.net .v{font-size:var(--fs-small); line-height:1.65}
+
 /* ─────────── org tree ─────────── */
 .tree{margin-top:30px; font-size:var(--fs-small)}
 .tree ul{list-style:none; margin:0; padding-left:clamp(16px,4vw,28px)}
@@ -485,8 +509,8 @@ footer a{color:var(--ink-2)}
       <span class="en">The people behind the material.</span>
     </h2>
     <p class="lede">
-      <span class="ja">フェライト化学、磁性材料、放射光分光。40年分の蓄積が一つの反応に集まっています。</span>
-      <span class="en">Ferrite chemistry, magnetic materials, synchrotron spectroscopy. Four decades of work converging on a single reaction.</span>
+      <span class="ja">フェライト化学、磁性材料、放射光分光。東京科学大学の複数研究室と東京大学にまたがる研究チームが、40年分の蓄積を一つの反応に集めています。</span>
+      <span class="en">Ferrite chemistry, magnetic materials, synchrotron spectroscopy. A team spanning several laboratories at Institute of Science Tokyo and The University of Tokyo, bringing four decades of work to bear on a single reaction.</span>
     </p>
 
     <div class="dots">
@@ -562,6 +586,27 @@ footer a{color:var(--ink-2)}
         <span class="ro"><span class="ja">理事事務局長</span><span class="en">Executive Director</span></span>
         <span class="af"><span class="ja">合同会社玉浦ラボ</span><span class="en">Tamaura Labo LLC</span></span>
       </div>
+    </div>
+
+    <div class="cred">
+      <h3><span class="ja">技術の源流</span><span class="en">Where the chemistry comes from</span></h3>
+      <p class="ja">代表・玉浦裕は、鉄酸化物（フェライト）を用いた太陽熱化学の分野を切り開いた研究者です。1990年には、カチオン過剰マグネタイトによって二酸化炭素を炭素まで完全に還元する反応を <em>Nature</em> 誌に報告しました。</p>
+      <p class="en">Yutaka Tamaura opened the field of ferrite-based solar thermochemistry. In 1990 he reported in <em>Nature</em> the complete reduction of carbon dioxide to carbon using cation-excess magnetite.</p>
+      <p><cite>Tamaura &amp; Tahata, <em>Nature</em> 346, 255 (1990) · doi:10.1038/346255a0</cite></p>
+      <p class="ja">本事業の出発点となるグリーンラスト化学も、同じ研究者が1984年に確立したものです。</p>
+      <p class="en">The green rust chemistry this venture is built on was established by the same researcher in 1984.</p>
+      <p><cite>Tamaura, Yoshida &amp; Katsura, <em>Bull. Chem. Soc. Jpn.</em> 57, 2411 (1984)</cite></p>
+    </div>
+
+    <div class="network">
+      <div class="net"><span class="k"><span class="ja">研究連携</span><span class="en">Laboratories</span></span>
+        <span class="v"><span class="ja">東京科学大学 複数研究室<br>東京大学</span><span class="en">Several labs at Institute of Science Tokyo<br>The University of Tokyo</span></span></div>
+      <div class="net"><span class="k"><span class="ja">専門領域</span><span class="en">Disciplines</span></span>
+        <span class="v"><span class="ja">フェライト化学／磁性薄膜／磁性ナノ粒子／反応器工学／放射光分光</span><span class="en">Ferrite chemistry · magnetic thin films · magnetic nanoparticles · reactor engineering · synchrotron spectroscopy</span></span></div>
+      <div class="net"><span class="k"><span class="ja">共用施設</span><span class="en">Shared facilities</span></span>
+        <span class="v"><span class="ja">SPring-8 BL23SU<br>軟X線光電子分光</span><span class="en">SPring-8 BL23SU<br>soft X-ray photoemission</span></span></div>
+      <div class="net"><span class="k"><span class="ja">これから加わる人</span><span class="en">Who we are hiring</span></span>
+        <span class="v"><span class="ja">光学・分光の研究者。現在のチームに不足している領域です。</span><span class="en">Researchers in optics and spectroscopy — the expertise this team does not yet have.</span></span></div>
     </div>
 
     <div class="note">
