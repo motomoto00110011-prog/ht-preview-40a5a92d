@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="鉄と酸素と硫黄だけで、常温・常圧の水からナノ材料をつくる。カドミウム・鉛・水銀・インジウムを使わない鉄系ナノ材料プラットフォーム。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HarmonyTEC Alliance">
+<meta property="og:description" content="鉄と酸素と硫黄だけで、常温・常圧の水からナノ材料をつくる。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>HarmonyTEC Alliance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ─────────── tokens ─────────── */
+:root{
+  /* neutrals carry a faint green-rust bias */
+  --paper:#F4F5F1;
+  --paper-2:#EAECE5;
+  --card:#FFFFFF;
+  --ink:#14171A;          /* magnetite */
+  --ink-2:#3D4449;
+  --ink-3:#6C757A;
+  --rule:#D5D9CF;
+  --accent:#1F6B5B;       /* green rust */
+  --accent-soft:#DCE8E2;
+  --accent-ink:#134A3F;
+  --iron:#9C4A2F;         /* iron oxide, used sparingly */
+  --iron-soft:#F0DFD8;
+  --shadow:0 1px 2px rgba(20,23,26,.05), 0 8px 24px -12px rgba(20,23,26,.14);
+
+  --fs-hero:clamp(2.1rem,6.2vw,3.5rem);
+  --fs-h2:clamp(1.45rem,3.4vw,2rem);
+  --fs-h3:1.08rem;
+  --fs-body:1rem;
+  --fs-small:.85rem;
+  --fs-mono:.78rem;
+
+  --maxw:960px;
+  --gut:clamp(18px,5vw,40px);
+
+  --ff-disp:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --ff-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --ff-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111413;
+    --paper-2:#171B19;
+    --card:#1B201E;
+    --ink:#EDEFEA;
+    --ink-2:#C3C8C2;
+    --ink-3:#8D9490;
+    --rule:#2C332F;
+    --accent:#63BFA6;
+    --accent-soft:#1B322C;
+    --accent-ink:#9BD8C5;
+    --iron:#D98B6E;
+    --iron-soft:#33221C;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111413; --paper-2:#171B19; --card:#1B201E;
+  --ink:#EDEFEA; --ink-2:#C3C8C2; --ink-3:#8D9490; --rule:#2C332F;
+  --accent:#63BFA6; --accent-soft:#1B322C; --accent-ink:#9BD8C5;
+  --iron:#D98B6E; --iron-soft:#33221C;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--ff-body); font-size:var(--fs-body);
+  line-height:1.85; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+/* ─────────── language switching ─────────── */
+:root[data-lang="ja"] .en{display:none}
+:root[data-lang="en"] .ja{display:none}
+:root[data-lang="en"] body{line-height:1.7}
+
+/* ─────────── draft banner ─────────── */
+.draft{
+  background:var(--iron); color:#fff;
+  font-family:var(--ff-mono); font-size:var(--fs-mono);
+  letter-spacing:.06em; text-align:center;
+  padding:7px var(--gut);
+}
+
+/* ─────────── header ─────────── */
+header{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:30;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.hwrap{
+  max-width:var(--maxw); margin-inline:auto;
+  padding:12px var(--gut);
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+}
+.brand{display:flex; align-items:center; gap:10px; margin-right:auto; text-decoration:none; color:inherit}
+.mark{
+  width:26px; height:26px; border-radius:50%;
+  background:radial-gradient(circle at 32% 30%, #4a5350, var(--ink) 70%);
+  flex:none; box-shadow:0 0 0 3px var(--accent-soft);
+}
+.brand b{font-family:var(--ff-disp); font-weight:800; font-size:1rem; letter-spacing:.02em}
+nav{display:flex; gap:clamp(10px,2.4vw,20px); flex-wrap:wrap}
+nav a{
+  color:var(--ink-2); text-decoration:none;
+  font-size:var(--fs-small); padding:3px 0;
+  border-bottom:1.5px solid transparent;
+}
+nav a:hover,nav a:focus-visible{color:var(--accent); border-bottom-color:var(--accent)}
+.lang{
+  display:flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; flex:none;
+}
+.lang button{
+  font:500 var(--fs-mono)/1 var(--ff-mono);
+  letter-spacing:.06em; padding:7px 11px;
+  background:transparent; color:var(--ink-3); border:0; cursor:pointer;
+}
+.lang button[aria-pressed="true"]{background:var(--accent); color:#fff}
+
+/* ─────────── layout ─────────── */
+main{max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gut)}
+section{padding-block:clamp(52px,9vw,86px); border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+.eyebrow{
+  font-family:var(--ff-mono); font-size:var(--fs-mono);
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 14px;
+}
+h2{
+  font-family:var(--ff-disp); font-weight:800;
+  font-size:var(--fs-h2); line-height:1.4; text-wrap:balance;
+  margin:0 0 .7em; letter-spacing:.01em;
+}
+h3{font-size:var(--fs-h3); font-weight:700; margin:0 0 .5em; line-height:1.55}
+p{margin:0 0 1.1em; max-width:62ch}
+.lede{font-size:1.06rem; color:var(--ink-2)}
+.muted{color:var(--ink-3); font-size:var(--fs-small)}
+a{color:var(--accent-ink)}
+
+/* ─────────── hero ─────────── */
+.hero{padding-block:clamp(48px,10vw,84px) clamp(36px,7vw,60px)}
+.hero h1{
+  font-family:var(--ff-disp); font-weight:800;
+  font-size:var(--fs-hero); line-height:1.24; letter-spacing:.01em;
+  margin:0 0 .5em; text-wrap:balance;
+}
+.hero .lede{max-width:40ch; font-size:clamp(1rem,2.2vw,1.14rem)}
+.cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:30px}
+.btn{
+  display:inline-block; text-decoration:none;
+  font-size:var(--fs-small); font-weight:700;
+  padding:12px 22px; border-radius:2px;
+  background:var(--accent); color:#fff;
+  border:1.5px solid var(--accent);
+}
+.btn:hover{background:var(--accent-ink); border-color:var(--accent-ink)}
+.btn.ghost{background:transparent; color:var(--accent-ink); border-color:var(--rule)}
+.btn.ghost:hover{border-color:var(--accent); color:var(--accent)}
+
+/* formula strip */
+.formula{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  margin-top:34px; padding-top:22px; border-top:1px solid var(--rule);
+  font-family:var(--ff-mono); font-size:var(--fs-mono); color:var(--ink-3);
+}
+.formula span{white-space:nowrap}
+.formula b{color:var(--ink-2); font-weight:500}
+
+/* ─────────── researchers ─────────── */
+.dots{
+  display:grid; gap:clamp(18px,3vw,26px);
+  grid-template-columns:repeat(auto-fill,minmax(128px,1fr));
+  margin-top:34px;
+}
+.person{text-align:center}
+.disc{
+  width:clamp(64px,15vw,82px); aspect-ratio:1; margin:0 auto 12px;
+  border-radius:50%; display:grid; place-items:center;
+  font-family:var(--ff-disp); font-weight:800;
+  font-size:clamp(1.5rem,4.2vw,1.85rem); color:var(--ink);
+  background:var(--card); border:1px solid var(--rule);
+  box-shadow:0 0 0 0 var(--accent-soft); transition:box-shadow .18s ease;
+}
+.person:hover .disc{box-shadow:0 0 0 5px var(--accent-soft)}
+.person.lead .disc{
+  width:clamp(84px,19vw,108px); font-size:clamp(1.9rem,5vw,2.4rem);
+  border-color:var(--accent); box-shadow:0 0 0 5px var(--accent-soft);
+  color:var(--accent-ink);
+}
+.person.lead{grid-column:span 2}
+.nm{display:block; font-weight:700; font-size:.95rem; line-height:1.5}
+.ro{display:block; font-size:.74rem; color:var(--accent); margin-top:3px; letter-spacing:.02em}
+.af{display:block; font-size:.74rem; color:var(--ink-3); margin-top:2px; line-height:1.55}
+.note{
+  margin-top:28px; padding:14px 16px; border-radius:3px;
+  background:var(--paper-2); border-left:3px solid var(--rule);
+  font-size:var(--fs-small); color:var(--ink-3);
+}
+.note p{margin:0; max-width:none}
+
+/* ─────────── soft content blocks ─────────── */
+.blocks{display:grid; gap:clamp(26px,4vw,38px); margin-top:30px}
+@media(min-width:720px){.blocks{grid-template-columns:1fr 1fr}}
+.block p:last-child{margin-bottom:0}
+.block .num{
+  font-family:var(--ff-mono); font-size:var(--fs-mono);
+  color:var(--accent); letter-spacing:.1em; display:block; margin-bottom:8px;
+}
+
+/* ─────────── process ─────────── */
+.flow{display:grid; gap:0; margin-top:32px}
+.step{
+  display:grid; grid-template-columns:78px 1fr; gap:clamp(14px,3vw,24px);
+  padding:20px 0; border-top:1px solid var(--rule);
+}
+.step:last-child{border-bottom:1px solid var(--rule)}
+.chip{
+  align-self:start; justify-self:start;
+  font-family:var(--ff-mono); font-size:var(--fs-mono);
+  color:var(--ink-3); padding-top:4px; line-height:1.6;
+}
+.step h3{margin-bottom:.3em}
+.step p{margin:0; font-size:var(--fs-small); color:var(--ink-2)}
+.pellet{
+  display:inline-block; width:9px; height:9px; border-radius:50%;
+  margin-right:7px; vertical-align:1px;
+}
+.p-green{background:#5E8F7E}
+.p-black{background:var(--ink); box-shadow:0 0 0 1px var(--rule)}
+.p-bronze{background:#8A6A3A}
+
+/* ─────────── two materials ─────────── */
+.pair{display:grid; gap:20px; margin-top:30px}
+@media(min-width:760px){.pair{grid-template-columns:1fr 1fr}}
+.mat{
+  background:var(--card); border:1px solid var(--rule); border-radius:4px;
+  padding:clamp(20px,3.4vw,28px); box-shadow:var(--shadow);
+}
+.mat header{
+  position:static; background:none; backdrop-filter:none; border:0;
+  padding:0; margin-bottom:14px; display:block;
+}
+.mat .tag{
+  font-family:var(--ff-mono); font-size:var(--fs-mono); letter-spacing:.08em;
+  display:inline-block; padding:3px 9px; border-radius:999px; margin-bottom:10px;
+}
+.tag.now{background:var(--accent-soft); color:var(--accent-ink)}
+.tag.next{background:var(--iron-soft); color:var(--iron)}
+.mat h3{font-family:var(--ff-disp); font-size:1.24rem; margin-bottom:.2em}
+.mat .sub{font-family:var(--ff-mono); font-size:var(--fs-mono); color:var(--ink-3); margin-bottom:14px}
+.mat ul{margin:0; padding-left:1.1em}
+.mat li{font-size:var(--fs-small); margin-bottom:.5em; color:var(--ink-2)}
+.mat li::marker{color:var(--accent)}
+
+/* ─────────── timeline / regulation ─────────── */
+.reg{margin-top:28px; border-top:1px solid var(--rule)}
+.reg-row{
+  display:grid; grid-template-columns:minmax(92px,auto) 1fr; gap:clamp(12px,3vw,22px);
+  padding:15px 0; border-bottom:1px solid var(--rule); align-items:baseline;
+}
+.reg-row time{font-family:var(--ff-mono); font-size:var(--fs-mono); color:var(--ink-3); white-space:nowrap}
+.reg-row p{margin:0; font-size:var(--fs-small)}
+.reg-row.key time{color:var(--iron)}
+.reg-row.key p{font-weight:700}
+
+/* ─────────── verification ─────────── */
+.tests{display:grid; gap:14px; margin-top:28px}
+@media(min-width:680px){.tests{grid-template-columns:1fr 1fr}}
+.test{
+  border:1px solid var(--rule); border-radius:4px; padding:16px 18px;
+  background:var(--paper-2);
+}
+.test .id{font-family:var(--ff-mono); font-size:var(--fs-mono); color:var(--accent); letter-spacing:.08em}
+.test h3{font-size:.98rem; margin:.35em 0 .3em}
+.test p{margin:0; font-size:var(--fs-small); color:var(--ink-3)}
+
+/* ─────────── ehon ─────────── */
+.ehon{
+  display:grid; gap:clamp(22px,4vw,34px); align-items:center;
+  grid-template-columns:1fr;
+}
+@media(min-width:680px){.ehon{grid-template-columns:200px 1fr}}
+.tetchan{justify-self:center}
+
+/* ─────────── org / facts ─────────── */
+.facts{margin-top:26px; border-top:1px solid var(--rule)}
+.fact{
+  display:grid; grid-template-columns:minmax(104px,auto) 1fr; gap:clamp(12px,3vw,24px);
+  padding:13px 0; border-bottom:1px solid var(--rule); align-items:baseline;
+}
+.fact dt{font-size:var(--fs-small); color:var(--ink-3)}
+.fact dd{margin:0; font-size:var(--fs-small)}
+
+/* ─────────── news ─────────── */
+.news{list-style:none; margin:26px 0 0; padding:0; border-top:1px solid var(--rule)}
+.news li{padding:15px 0; border-bottom:1px solid var(--rule)}
+.news time{font-family:var(--ff-mono); font-size:var(--fs-mono); color:var(--ink-3); display:block; margin-bottom:4px}
+.news a{font-size:var(--fs-small); text-decoration:none; font-weight:500}
+.news a:hover{text-decoration:underline}
+
+/* ─────────── form ─────────── */
+form{margin-top:28px; max-width:560px}
+.field{margin-bottom:18px}
+label{display:block; font-size:var(--fs-small); font-weight:700; margin-bottom:6px}
+input,select,textarea{
+  width:100%; font:inherit; font-size:var(--fs-small);
+  padding:11px 13px; border-radius:3px;
+  border:1px solid var(--rule); background:var(--card); color:var(--ink);
+}
+textarea{resize:vertical; min-height:120px}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px;
+}
+button[type=submit]{
+  font:700 var(--fs-small)/1 var(--ff-body);
+  padding:13px 26px; border-radius:2px; cursor:pointer;
+  background:var(--accent); color:#fff; border:1.5px solid var(--accent);
+}
+button[type=submit]:hover{background:var(--accent-ink); border-color:var(--accent-ink)}
+
+/* ─────────── footer ─────────── */
+footer{
+  border-top:1px solid var(--rule); margin-top:20px;
+  padding:34px var(--gut) calc(40px + env(safe-area-inset-bottom,0px));
+  background:var(--paper-2);
+}
+.fwrap{max-width:var(--maxw); margin-inline:auto; display:grid; gap:20px}
+@media(min-width:680px){.fwrap{grid-template-columns:1fr auto; align-items:end}}
+footer p{margin:0; font-size:var(--fs-small); color:var(--ink-3); max-width:none}
+footer a{color:var(--ink-2)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+
+</head>
+<body>
+<div class="draft">
+  <span class="ja">デザイン案 v1 ／ 内部レビュー用 ── 掲載内容は確定前です</span>
+  <span class="en">DRAFT v1 — for internal review. Content not final.</span>
+</div>
+
+<header>
+  <div class="hwrap">
+    <a class="brand" href="#top"><span class="mark"></span><b>HarmonyTEC</b></a>
+    <nav>
+      <a href="#people"><span class="ja">研究者</span><span class="en">People</span></a>
+      <a href="#work"><span class="ja">技術</span><span class="en">Technology</span></a>
+      <a href="#materials"><span class="ja">材料</span><span class="en">Materials</span></a>
+      <a href="#verify"><span class="ja">検証</span><span class="en">Verification</span></a>
+      <a href="#contact"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="lang-ja" type="button" aria-pressed="true">JA</button>
+      <button id="lang-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <h1>
+      <span class="ja">鉄と酸素と硫黄だけで。</span>
+      <span class="en">Iron, oxygen, sulfur.<br>Nothing else.</span>
+    </h1>
+    <p class="lede">
+      <span class="ja">常温・常圧の水から、ナノ材料をつくる。カドミウムも、鉛も、水銀も、インジウムも使わずに。</span>
+      <span class="en">Nanomaterials grown in water, at ambient temperature and pressure — with no cadmium, lead, mercury or indium.</span>
+    </p>
+    <div class="cta">
+      <a class="btn" href="#contact"><span class="ja">サンプル・共同評価のご相談</span><span class="en">Request a sample</span></a>
+      <a class="btn ghost" href="#work"><span class="ja">技術を見る</span><span class="en">See the technology</span></a>
+    </div>
+    <div class="formula">
+      <span><b>FeSO₄·7H₂O</b> <span class="ja">硫酸鉄</span><span class="en">iron sulfate</span></span>
+      <span aria-hidden="true">→</span>
+      <span><b>Fe₃O₄</b> 7–9 nm</span>
+      <span aria-hidden="true">→</span>
+      <span><b>Fe₃S₄</b></span>
+      <span aria-hidden="true">·</span>
+      <span>30–60 °C</span>
+      <span aria-hidden="true">·</span>
+      <span><span class="ja">常圧</span><span class="en">ambient pressure</span></span>
+    </div>
+  </section>
+
+  <!-- ─── PEOPLE ─── -->
+  <section id="people">
+    <p class="eyebrow"><span class="ja">研究者</span><span class="en">People</span></p>
+    <h2>
+      <span class="ja">この材料をつくっている人たち。</span>
+      <span class="en">The people behind the material.</span>
+    </h2>
+    <p class="lede">
+      <span class="ja">フェライト化学、磁性材料、放射光分光。40年分の蓄積が一つの反応に集まっています。</span>
+      <span class="en">Ferrite chemistry, magnetic materials, synchrotron spectroscopy. Four decades of work converging on a single reaction.</span>
+    </p>
+
+    <div class="dots">
+      <div class="person lead">
+        <div class="disc" aria-hidden="true">玉</div>
+        <span class="nm"><span class="ja">玉浦 裕</span><span class="en">Yutaka Tamaura</span></span>
+        <span class="ro"><span class="ja">代表理事</span><span class="en">Representative Director</span></span>
+        <span class="af"><span class="ja">理学博士／東京科学大学 名誉教授</span><span class="en">Ph.D.<br>Professor Emeritus<br>Institute of Science Tokyo</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">相</div>
+        <span class="nm"><span class="ja">相澤 益男</span><span class="en">Masuo Aizawa</span></span>
+        <span class="ro"><span class="ja">名誉顧問</span><span class="en">Honorary Advisor</span></span>
+        <span class="af"><span class="ja">東京科学大学 元学長</span><span class="en">Former President, Institute of Science Tokyo</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">広</div>
+        <span class="nm"><span class="ja">広瀬 茂久</span><span class="en">Shigehisa Hirose</span></span>
+        <span class="ro"><span class="ja">理事</span><span class="en">Director</span></span>
+        <span class="af"><span class="ja">理学博士／東京科学大学 名誉教授</span><span class="en">Ph.D.<br>Professor Emeritus<br>Institute of Science Tokyo</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">柏</div>
+        <span class="nm"><span class="ja">柏木 孝夫</span><span class="en">Takao Kashiwagi</span></span>
+        <span class="ro"><span class="ja">理事</span><span class="en">Director</span></span>
+        <span class="af"><span class="ja">コージェネレーション・エネルギー高度利用センター 理事長</span><span class="en">Chairman, Advanced Cogeneration and Energy Utilization Center</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">土</div>
+        <span class="nm"><span class="ja">土肥 義治</span><span class="en">Yoshiharu Doi</span></span>
+        <span class="ro"><span class="ja">理事</span><span class="en">Director</span></span>
+        <span class="af"><span class="ja">東京科学大学 名誉教授</span><span class="en">Professor Emeritus<br>Institute of Science Tokyo</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">松</div>
+        <span class="nm"><span class="ja">松下 伸広</span><span class="en">Nobuhiro Matsushita</span></span>
+        <span class="ro"><span class="ja">共同研究</span><span class="en">Collaborator</span></span>
+        <span class="af"><span class="ja">東京科学大学／フェライト薄膜</span><span class="en">Institute of Science Tokyo<br>Ferrite thin films</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">北</div>
+        <span class="nm"><span class="ja">北本 仁孝</span><span class="en">Yoshitaka Kitamoto</span></span>
+        <span class="ro"><span class="ja">共同研究</span><span class="en">Collaborator</span></span>
+        <span class="af"><span class="ja">東京科学大学／磁性ナノ粒子</span><span class="en">Institute of Science Tokyo<br>Magnetic nanoparticles</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">木</div>
+        <span class="nm"><span class="ja">木倉 宏成</span><span class="en">Hiroshige Kikura</span></span>
+        <span class="ro"><span class="ja">共同研究</span><span class="en">Collaborator</span></span>
+        <span class="af"><span class="ja">東京科学大学／反応器工学</span><span class="en">Institute of Science Tokyo<br>Reactor engineering</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">小</div>
+        <span class="nm"><span class="ja">小林 正起</span><span class="en">Masaki Kobayashi</span></span>
+        <span class="ro"><span class="ja">共同研究</span><span class="en">Collaborator</span></span>
+        <span class="af"><span class="ja">東京大学／放射光分光</span><span class="en">The University of Tokyo<br>Synchrotron spectroscopy</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">久</div>
+        <span class="nm"><span class="ja">久保田 雄太</span><span class="en">Yuta Kubota</span></span>
+        <span class="ro"><span class="ja">共同研究</span><span class="en">Collaborator</span></span>
+        <span class="af"><span class="ja">東京科学大学</span><span class="en">Institute of Science Tokyo</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">多</div>
+        <span class="nm"><span class="ja">多田 昌</span><span class="en">Masaru Tada</span></span>
+        <span class="ro"><span class="ja">共同研究</span><span class="en">Collaborator</span></span>
+        <span class="af"><span class="ja">東京科学大学</span><span class="en">Institute of Science Tokyo</span></span>
+      </div>
+      <div class="person">
+        <div class="disc" aria-hidden="true">川</div>
+        <span class="nm"><span class="ja">川本 忠</span><span class="en">Tadashi Kawamoto</span></span>
+        <span class="ro"><span class="ja">理事事務局長</span><span class="en">Executive Director</span></span>
+        <span class="af"><span class="ja">合同会社玉浦ラボ</span><span class="en">Tamaura Labo LLC</span></span>
+      </div>
+    </div>
+
+    <div class="note">
+      <p class="ja"><strong>制作メモ</strong>：顔写真に差し替える前提のプレースホルダです。並び順・強調する方は川本さんと相談のうえ確定。研究者名簿が届き次第、追加します。</p>
+      <p class="en"><strong>Production note:</strong> placeholders pending portrait photography. Order and emphasis to be confirmed; further members to be added once the full roster arrives.</p>
+    </div>
+  </section>
+
+  <!-- ─── WORK ─── -->
+  <section id="work">
+    <p class="eyebrow"><span class="ja">やっていること</span><span class="en">What we do</span></p>
+    <h2>
+      <span class="ja">つくり方を変える、という研究です。</span>
+      <span class="en">Our research is about changing how things are made.</span>
+    </h2>
+
+    <div class="blocks">
+      <div class="block">
+        <span class="num">01</span>
+        <h3><span class="ja">水のなかで、粒が育つ</span><span class="en">Particles that grow in water</span></h3>
+        <p class="ja">ふつう、ナノ粒子をつくるには高い温度と有機溶媒が要ります。私たちは、さびの一種である「グリーンラスト」を経由することで、30〜60℃の水のなかで、7〜9ナノメートルの粒が自然に育つ道を見つけました。加熱も、有機溶媒も、要りません。</p>
+        <p class="en">Making nanoparticles usually takes high temperatures and organic solvents. By routing the reaction through green rust — a form of corrosion — we found a path where 7–9 nanometre particles grow spontaneously in water between 30 and 60 °C. No heating stage. No organic solvents.</p>
+      </div>
+      <div class="block">
+        <span class="num">02</span>
+        <h3><span class="ja">原料は、硫酸鉄</span><span class="en">The raw material is iron sulfate</span></h3>
+        <p class="ja">使うのは鉄と酸素と硫黄だけ。カドミウムも鉛も水銀もインジウムも使いません。これは「安いから」ではなく、<strong>規制に追われないから</strong>です。既存の材料が抱えている問題の多くは、性能ではなく、使い続けられるかどうかにあります。</p>
+        <p class="en">Iron, oxygen and sulfur — nothing else. No cadmium, lead, mercury or indium. This matters less because those elements are expensive than because they are <strong>regulated</strong>. What constrains incumbent materials today is not how well they perform, but whether they can continue to be used at all.</p>
+      </div>
+      <div class="block">
+        <span class="num">03</span>
+        <h3><span class="ja">大きな槽でも、同じ粒</span><span class="en">The same particle, at scale</span></h3>
+        <p class="ja">実験室の小さなフラスコと、0.5立方メートルの反応槽で、同じ大きさの粒ができました。水溶液・常温常圧という条件は、特別な設備を必要としません。既存の化学プラントで実行できます。</p>
+        <p class="en">A small laboratory flask and a 0.5 m³ vessel produced particles of the same size. An aqueous, ambient-condition process needs no specialised equipment — it can run in existing chemical plant.</p>
+      </div>
+      <div class="block">
+        <span class="num">04</span>
+        <h3><span class="ja">シリコンに、直接くっつく</span><span class="en">It bonds directly to silicon</span></h3>
+        <p class="ja">硫化したあとの粒は、硫黄の橋を介してシリコン基板に共有結合で固定できます。塗って、乾かすだけ。この結合はX線光電子分光（SPring-8 BL23SU）で確認しています。</p>
+        <p class="en">After sulfurisation, the particles bind covalently to a silicon substrate through sulfur bridges. Deposit and dry — nothing more. The bonding is confirmed by X-ray photoelectron spectroscopy at SPring-8 BL23SU.</p>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="step">
+        <span class="chip">pH 6.5<br>7–10 °C</span>
+        <div>
+          <h3><span class="pellet p-green" aria-hidden="true"></span><span class="ja">グリーンラスト II</span><span class="en">Green rust II</span></h3>
+          <p class="ja">硫酸鉄の水溶液を、ゆっくり空気で酸化させる。青緑色の中間体ができます。</p>
+          <p class="en">Iron sulfate solution, slowly oxidised by air. A blue-green intermediate forms.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="chip">pH 4.5–10<br>30–60 °C</span>
+        <div>
+          <h3><span class="pellet p-black" aria-hidden="true"></span><span class="ja">Fe₃O₄ ナノコロイド　7–9 nm</span><span class="en">Fe₃O₄ nanocolloid, 7–9 nm</span></h3>
+          <p class="ja">加熱せずに、自発的に立方体の粒へ。リガンドを使わないため表面は超親水性（接触角ほぼ0°）になります。</p>
+          <p class="en">Without heating, it transforms spontaneously into cubic particles. With no ligands, the surface is superhydrophilic — a contact angle near zero.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="chip">140 °C<br>H₂S · 24 h</span>
+        <div>
+          <h3><span class="pellet p-bronze" aria-hidden="true"></span><span class="ja">Fe₃S₄（グライガイト）</span><span class="en">Fe₃S₄ (greigite)</span></h3>
+          <p class="ja">硫化水素で硫化物へ。{110}面がそろって並び、シリコン上に硫黄架橋で固定されます。</p>
+          <p class="en">Hydrogen sulfide converts the oxide to a sulfide. The {110} facets align, and the layer anchors to silicon through sulfur bridges.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <p class="ja">論文：<a href="https://doi.org/10.21203/rs.3.rs-10546947/v1">プレプリント公開済み</a>（Research Square, CC BY 4.0）。<strong>査読誌に投稿準備中です。</strong></p>
+      <p class="en">Paper: <a href="https://doi.org/10.21203/rs.3.rs-10546947/v1">preprint available</a> (Research Square, CC BY 4.0). <strong>Preparing submission to a peer-reviewed journal.</strong></p>
+    </div>
+  </section>
+
+  <!-- ─── MATERIALS ─── -->
+  <section id="materials">
+    <p class="eyebrow"><span class="ja">二つの材料</span><span class="en">Two materials</span></p>
+    <h2>
+      <span class="ja">酸化物と硫化物は、別のものです。</span>
+      <span class="en">The oxide and the sulfide are different things.</span>
+    </h2>
+    <p class="lede">
+      <span class="ja">同じ工程の前段と後段から、性質も用途も異なる二つの材料が出ます。混ぜて語らないことにしています。</span>
+      <span class="en">One process yields two materials with different properties and different uses. We keep them apart, deliberately.</span>
+    </p>
+
+    <div class="pair">
+      <article class="mat">
+        <span class="tag now"><span class="ja">今できること</span><span class="en">Available now</span></span>
+        <h3>Fe₃O₄</h3>
+        <p class="sub"><span class="ja">マグネタイト／磁性ナノコロイド</span><span class="en">Magnetite — magnetic nanocolloid</span></p>
+        <ul>
+          <li><span class="ja">強いフェリ磁性。磁石で回収・分離できます</span><span class="en">Strongly ferrimagnetic — separable with a magnet</span></li>
+          <li><span class="ja">リガンドフリー・超親水性。有機被覆由来の非特異吸着がありません</span><span class="en">Ligand-free and superhydrophilic — no coating-derived non-specific binding</span></li>
+          <li><span class="ja">同素材の医薬品が複数、FDA で承認されています</span><span class="en">Several FDA-approved products share this material</span></li>
+          <li><span class="ja">発光はしません。半金属であり、磁性・吸収材料として扱います</span><span class="en">It does not emit light. It is a half-metal, and we treat it as a magnetic and absorbing material</span></li>
+        </ul>
+        <p class="muted" style="margin:14px 0 0">
+          <span class="ja"><strong>用途</strong>：磁気分離・免疫磁気ビーズ／獣医療（共同研究実施中）／研究試薬</span>
+          <span class="en"><strong>Applications:</strong> magnetic separation and immunomagnetic beads; veterinary medicine (collaboration under way); research reagents</span>
+        </p>
+      </article>
+
+      <article class="mat">
+        <span class="tag next"><span class="ja">評価中</span><span class="en">Under evaluation</span></span>
+        <h3>Fe₃S₄</h3>
+        <p class="sub"><span class="ja">グライガイト／短波長赤外 吸収材料</span><span class="en">Greigite — shortwave-infrared absorber</span></p>
+        <ul>
+          <li><span class="ja">狭いバンドギャップ。可視から近赤外までを広く吸収します</span><span class="en">A narrow band gap; broad absorption from the visible into the near infrared</span></li>
+          <li><span class="ja">シリコン上に硫黄架橋で共有結合固定できます</span><span class="en">Bonds covalently to silicon through sulfur bridges</span></li>
+          <li><span class="ja">水溶液成膜。高温工程も有機溶媒も不要です</span><span class="en">Deposited from water — no high-temperature step, no organic solvents</span></li>
+          <li><span class="ja">光電変換効率・電荷取り出し・安定性は<strong>測定中</strong>です</span><span class="en">Photoresponse, charge extraction and stability are <strong>still being measured</strong></span></li>
+        </ul>
+        <p class="muted" style="margin:14px 0 0">
+          <span class="ja"><strong>狙い</strong>：短波長赤外の光検出材料（既存は PbS／HgTe／InGaAs）／オンチップ NDIR ガスセンシング</span>
+          <span class="en"><strong>Target:</strong> SWIR photodetection, where the incumbents are PbS, HgTe and InGaAs; on-chip NDIR gas sensing</span>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── REGULATION ─── -->
+  <section id="why">
+    <p class="eyebrow"><span class="ja">なぜ今か</span><span class="en">Why now</span></p>
+    <h2>
+      <span class="ja">規制の時計が動いています。</span>
+      <span class="en">A regulatory clock is running.</span>
+    </h2>
+    <p class="lede">
+      <span class="ja">既存材料が直面しているのは性能の限界ではなく、使い続けられるかどうかです。</span>
+      <span class="en">What incumbent materials face is not a performance ceiling. It is a question of whether they can continue to be used.</span>
+    </p>
+
+    <div class="reg">
+      <div class="reg-row">
+        <time datetime="2017">2017</time>
+        <p><span class="ja">EU RoHS の免除39 が 39(a) に縮小。カドミウム上限が50倍厳しくなる</span><span class="en">EU RoHS exemption 39 narrowed to 39(a); the cadmium limit tightens fifty-fold</span></p>
+      </div>
+      <div class="reg-row key">
+        <time datetime="2025-11-21">2025.11.21</time>
+        <p><span class="ja">免除 39(a) が失効。カドミウム量子ドットフィルムは通常の 100 ppm 規制下へ</span><span class="en">Exemption 39(a) expires; cadmium quantum-dot films fall under the standard 100 ppm limit</span></p>
+      </div>
+      <div class="reg-row">
+        <time datetime="2026-06-30">2026.06.30</time>
+        <p><span class="ja">更新申請の期限。公開されている申請パイプラインに、カドミウム量子ドットの申請は見当たりません</span><span class="en">Renewal deadline. No cadmium quantum-dot request appears in the published exemption pipeline</span></p>
+      </div>
+      <div class="reg-row key">
+        <time datetime="2027-12-31">2027.12.31</time>
+        <p><span class="ja">残る免除 39(b) も失効予定</span><span class="en">The remaining exemption, 39(b), is due to lapse</span></p>
+      </div>
+    </div>
+
+    <p style="margin-top:26px">
+      <span class="ja">そして「カドミウムフリー」の代替材料も、無傷ではありません。インジウムリンは RoHS の評価対象になったことがあり、CLP 分類の発がん性物質です。短波長赤外で使われる PbS は鉛、HgTe は水銀を含みます。</span>
+      <span class="en">Nor is the “cadmium-free” alternative untouched. Indium phosphide has itself been assessed under RoHS and is classified as a carcinogen under CLP. In the shortwave infrared, PbS carries lead and HgTe carries mercury.</span>
+    </p>
+    <p>
+      <span class="ja"><strong>鉄・酸素・硫黄は、そのいずれにも当たりません。</strong>2025年の米国重要鉱物リストにも、EU 重要原材料法の附属書にも、私たちの部品表に載る元素は一つも含まれていません。調達部門の質問票に、一行で答えられます。</span>
+      <span class="en"><strong>Iron, oxygen and sulfur fall under none of these.</strong> Not one element in our bill of materials appears on the 2025 US Critical Minerals List or in the annexes to the EU Critical Raw Materials Act. That is a one-line answer to a procurement questionnaire.</span>
+    </p>
+  </section>
+
+  <!-- ─── VERIFY ─── -->
+  <section id="verify">
+    <p class="eyebrow"><span class="ja">検証していること</span><span class="en">What we are verifying</span></p>
+    <h2>
+      <span class="ja">自分の主張を、自分で潰しにいきます。</span>
+      <span class="en">We are trying to disprove our own claims.</span>
+    </h2>
+    <p class="lede">
+      <span class="ja">私たちの主張には前例のないものが含まれます。前例のない主張は疑われて当然です。だから外部機関による第三者検証を進めています。</span>
+      <span class="en">Some of what we report has no precedent. Claims without precedent deserve scepticism — so we have put them in the hands of independent laboratories.</span>
+    </p>
+
+    <div class="tests">
+      <div class="test">
+        <span class="id">T1</span>
+        <h3><span class="ja">元素分析・相同定</span><span class="en">Elemental and phase analysis</span></h3>
+        <p><span class="ja">ICP-MS／XRD リートベルト／⁵⁷Fe メスバウアー／XPS 深さ方向。微量汚染に由来する可能性を排除します。</span><span class="en">ICP-MS, Rietveld XRD, ⁵⁷Fe Mössbauer and depth-profiled XPS — to exclude trace contamination as an explanation.</span></p>
+      </div>
+      <div class="test">
+        <span class="id">T2</span>
+        <h3><span class="ja">励起強度依存 PL</span><span class="en">Excitation-power dependence</span></h3>
+        <p><span class="ja">近赤外蛍光分光計による発光種の帰属。吸光計ではなく蛍光計で測ります。</span><span class="en">Assigning the emitting species on a near-infrared fluorimeter — not an absorption spectrophotometer.</span></p>
+      </div>
+      <div class="test">
+        <span class="id">T3</span>
+        <h3><span class="ja">サイズ依存発光系列</span><span class="en">Size-dependent emission series</span></h3>
+        <p><span class="ja">粒径3水準以上。量子閉じ込めが存在するかどうかを確かめます。</span><span class="en">Three or more particle sizes, to establish whether quantum confinement is present at all.</span></p>
+      </div>
+      <div class="test">
+        <span class="id">T4</span>
+        <h3><span class="ja">積分球 絶対量子収率</span><span class="en">Absolute quantum yield</span></h3>
+        <p><span class="ja">校正標準にトレーサブルな積分球測定。発光強度の実用性を判定します。</span><span class="en">Integrating-sphere measurement against traceable standards, to judge whether the emission is useful.</span></p>
+      </div>
+    </div>
+
+    <div class="note" style="border-left-color:var(--accent)">
+      <p class="ja">各試験には <strong>「どの結果が出たら主張を取り下げるか」を測定前に文書化</strong>してあります。測定機関には期待される答えを伝えていません。結果が否定的でも公表します。</p>
+      <p class="en">For each test we have documented, <strong>in advance, the result that would make us withdraw the claim.</strong> The laboratories have not been told what answer is expected. We will publish the outcome either way.</p>
+    </div>
+
+    <p class="muted" style="margin-top:22px">
+      <span class="ja"><strong>現時点で主張していないこと</strong>：発光量子収率／単一光子性・量子もつれ／CMOS 前工程への集積。いずれも未測定、または想定していません。</span>
+      <span class="en"><strong>What we do not currently claim:</strong> photoluminescence quantum yield; single-photon or entangled emission; integration into CMOS front-end-of-line. These are unmeasured, or outside what we consider feasible.</span>
+    </p>
+  </section>
+
+  <!-- ─── EHON ─── -->
+  <section id="ehon">
+    <p class="eyebrow"><span class="ja">はじめての方へ</span><span class="en">For everyone else</span></p>
+    <div class="ehon">
+      <svg class="tetchan" width="168" height="168" viewBox="0 0 168 168" role="img" aria-labelledby="tt">
+        <title id="tt">てっちゃん — a small black particle character</title>
+        <circle cx="84" cy="84" r="54" fill="#1A1A1A"/>
+        <circle cx="66" cy="76" r="13" fill="#fff"/><circle cx="102" cy="76" r="13" fill="#fff"/>
+        <circle cx="69" cy="78" r="6.5" fill="#1A1A1A"/><circle cx="105" cy="78" r="6.5" fill="#1A1A1A"/>
+        <path d="M70 102 Q84 114 98 102" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="52" cy="98" r="7" fill="#C86A5A" opacity=".55"/>
+        <circle cx="116" cy="98" r="7" fill="#C86A5A" opacity=".55"/>
+        <path d="M30 84 L14 78 M30 92 L15 98" stroke="#1A1A1A" stroke-width="5" stroke-linecap="round"/>
+        <path d="M138 84 L154 78 M138 92 L153 98" stroke="#1A1A1A" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h2><span class="ja">研究者がつくった絵本があります。</span><span class="en">The researchers wrote a picture book.</span></h2>
+        <p class="ja">『魔法の黒いつぶつぶ「てっちゃん」の大冒険』。鉄と水から生まれた小さな黒い粒が、地球の空気をきれいにしにいく話です。難しい言葉はひとつも出てきません。</p>
+        <p class="en">“The Great Adventure of Tetchan, the Magic Black Speck.” A small black particle, born from iron and water, sets out to clean the planet’s air. Not one technical term appears in it.</p>
+        <p class="ja">科学は、子どもに説明できたときに、はじめて社会のものになると考えています。</p>
+        <p class="en">We think science only belongs to society once it can be explained to a child.</p>
+        <a class="btn ghost" href="#contact"><span class="ja">絵本について問い合わせる</span><span class="en">Ask about the book</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ORG ─── -->
+  <section id="about">
+    <p class="eyebrow"><span class="ja">組織</span><span class="en">Organisation</span></p>
+    <h2><span class="ja">ハーモニーテック・アライアンス</span><span class="en">HarmonyTEC Alliance</span></h2>
+    <p>
+      <span class="ja">企業の枠にとらわれないオープンイノベーション体制で、未踏の産業技術を集約し、地球環境の修復と保全に資する材料を社会に実装することを目的としています。</span>
+      <span class="en">An open-innovation body, unbound by corporate boundaries, formed to gather unexplored industrial technologies and bring materials that help restore and preserve the environment into real use.</span>
+    </p>
+
+    <dl class="facts">
+      <div class="fact"><dt><span class="ja">正式名称</span><span class="en">Legal name</span></dt>
+        <dd><span class="ja">一般社団法人 未踏サイエンスに基づく環境調和型産業振興会</span><span class="en">Association for the Promotion of Environmentally Harmonious Industry Based on Unexplored Science (general incorporated association)</span></dd></div>
+      <div class="fact"><dt><span class="ja">設立</span><span class="en">Established</span></dt><dd>2024.06.28</dd></div>
+      <div class="fact"><dt><span class="ja">代表理事</span><span class="en">Representative Director</span></dt>
+        <dd><span class="ja">玉浦 裕（東京科学大学 名誉教授）</span><span class="en">Yutaka Tamaura, Professor Emeritus, Institute of Science Tokyo</span></dd></div>
+      <div class="fact"><dt><span class="ja">所在地</span><span class="en">Address</span></dt>
+        <dd><span class="ja">〒103-0022 東京都中央区日本橋室町 1-7-1 スルガビル 7F</span><span class="en">Suruga Building 7F, 1-7-1 Nihonbashi-Muromachi, Chuo-ku, Tokyo 103-0022, Japan</span></dd></div>
+      <div class="fact"><dt><span class="ja">関連知財</span><span class="en">Related IP</span></dt>
+        <dd><span class="ja">製法特許を国際出願中（PCT/WO2026/038541・038542、出願人：合同会社玉浦ラボ ほか）。本法人は出願人ではありません。</span><span class="en">Production-method patents filed internationally (PCT/WO2026/038541 and 038542; applicant: Tamaura Labo LLC and co-applicants). The Alliance is not an applicant.</span></dd></div>
+      <div class="fact"><dt><span class="ja">研究設備</span><span class="en">Research facilities</span></dt>
+        <dd><span class="ja">SPring-8 BL23SU（軟X線光電子分光）ほか</span><span class="en">SPring-8 BL23SU (soft X-ray photoemission), among others</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- ─── NEWS ─── -->
+  <section id="news">
+    <p class="eyebrow"><span class="ja">お知らせ</span><span class="en">News</span></p>
+    <h2><span class="ja">最近の活動</span><span class="en">Recent activity</span></h2>
+    <ul class="news">
+      <li><time datetime="2026-08-03">2026.08.03</time>
+        <a href="https://doi.org/10.21203/rs.3.rs-10546947/v1"><span class="ja">Fe₃S₄ ナノ結晶の合成とシリコン集積に関するプレプリントを公開しました</span><span class="en">Preprint posted: synthesis and silicon integration of Fe₃S₄ nanocrystals</span></a></li>
+      <li><time datetime="2026-09">2026.09</time>
+        <a href="#contact"><span class="ja">次世代型太陽電池産業の持続的成長に向けた政策提案を提出しました</span><span class="en">Policy proposal submitted on sustainable growth for the next-generation photovoltaics industry</span></a></li>
+      <li><time datetime="2025-02-10">2025.02.10</time>
+        <a href="#contact"><span class="ja">第2回「ハーモニーテックシンポジウム」を開催しました</span><span class="en">The 2nd HarmonyTEC Symposium was held</span></a></li>
+      <li><time datetime="2024-07-05">2024.07.05</time>
+        <a href="#contact"><span class="ja">第1回「次世代最先端蓄電池研究会」を開催しました</span><span class="en">The 1st Next-Generation Advanced Battery Workshop was held</span></a></li>
+    </ul>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact">
+    <p class="eyebrow"><span class="ja">お問い合わせ</span><span class="en">Contact</span></p>
+    <h2><span class="ja">サンプルをお送りします。</span><span class="en">We will send you a sample.</span></h2>
+    <p class="lede">
+      <span class="ja">評価用のサンプルは無償でご提供します。「これを満たせば検討対象になる」という御社の閾値を、あわせてお聞かせください。</span>
+      <span class="en">Evaluation samples are supplied free of charge. Tell us the threshold your application would need us to meet, and we will aim at it.</span>
+    </p>
+
+    <form id="contact-form">
+      <div class="field">
+        <label for="f-name"><span class="ja">お名前</span><span class="en">Name</span></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="f-org"><span class="ja">ご所属</span><span class="en">Organisation</span></label>
+        <input id="f-org" name="org" type="text" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="f-mail"><span class="ja">メールアドレス</span><span class="en">Email</span></label>
+        <input id="f-mail" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="f-topic"><span class="ja">ご用件</span><span class="en">Subject</span></label>
+        <select id="f-topic" name="topic">
+          <option><span class="ja">サンプル請求</span></option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-msg"><span class="ja">ご用件の詳細</span><span class="en">Message</span></label>
+        <textarea id="f-msg" name="message"></textarea>
+      </div>
+      <button type="submit"><span class="ja">送信する</span><span class="en">Send</span></button>
+      <p class="muted" style="margin-top:14px" id="form-note">
+        <span class="ja">※ デザイン案のため、このフォームはまだ送信されません。実装時に Contact Form 7 などを接続します。</span>
+        <span class="en">Note: this is a design draft — the form does not send yet. A mail backend will be connected at build time.</span>
+      </p>
+    </form>
+
+    <p class="muted" style="margin-top:26px">
+      <span class="ja">直接のご連絡：<a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a>　／　TEL 03-6824-4131（英語対応可）</span>
+      <span class="en">Or write directly: <a href="mailto:office@harmonytech.or.jp">office@harmonytech.or.jp</a> · Tel +81-3-6824-4131 (English welcome)</span>
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="fwrap">
+    <div>
+      <p class="ja"><strong>一般社団法人 未踏サイエンスに基づく環境調和型産業振興会</strong><br>
+      通称 ハーモニーテック・アライアンス<br>
+      〒103-0022 東京都中央区日本橋室町 1-7-1 スルガビル 7F</p>
+      <p class="en"><strong>HarmonyTEC Alliance</strong><br>
+      Association for the Promotion of Environmentally Harmonious Industry Based on Unexplored Science<br>
+      Suruga Building 7F, 1-7-1 Nihonbashi-Muromachi, Chuo-ku, Tokyo 103-0022, Japan</p>
+    </div>
+    <p>© 2026 HarmonyTEC Alliance</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var bJa = document.getElementById('lang-ja');
+  var bEn = document.getElementById('lang-en');
+
+  function setLang(l){
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l === 'en' ? 'en' : 'ja');
+    bJa.setAttribute('aria-pressed', String(l === 'ja'));
+    bEn.setAttribute('aria-pressed', String(l === 'en'));
+    try { localStorage.setItem('ht-lang', l); } catch (e) {}
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem('ht-lang'); } catch (e) {}
+  if (!saved) {
+    saved = (navigator.language || '').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en';
+  }
+  setLang(saved === 'en' ? 'en' : 'ja');
+
+  bJa.addEventListener('click', function(){ setLang('ja'); });
+  bEn.addEventListener('click', function(){ setLang('en'); });
+
+  // Subject options need real per-language labels, so build them in JS.
+  var topics = {
+    ja: ['サンプル請求', '共同評価・共同研究', '技術資料のご請求', 'ライセンス・事業提携', '取材・講演', 'その他'],
+    en: ['Request a sample', 'Joint evaluation or research', 'Technical documentation', 'Licensing or partnership', 'Press and speaking', 'Other']
+  };
+  var sel = document.getElementById('f-topic');
+  function fillTopics(){
+    var l = root.getAttribute('data-lang') === 'en' ? 'en' : 'ja';
+    var keep = sel.selectedIndex < 0 ? 0 : sel.selectedIndex;
+    sel.innerHTML = '';
+    topics[l].forEach(function(t){
+      var o = document.createElement('option');
+      o.textContent = t;
+      sel.appendChild(o);
+    });
+    sel.selectedIndex = Math.min(keep, topics[l].length - 1);
+  }
+  fillTopics();
+  bJa.addEventListener('click', fillTopics);
+  bEn.addEventListener('click', fillTopics);
+
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var note = document.getElementById('form-note');
+    note.style.color = 'var(--iron)';
+    note.textContent = root.getAttribute('data-lang') === 'en'
+      ? 'This is a design draft — no message was sent. Connect a mail backend before launch.'
+      : 'これはデザイン案です。送信は行われていません。公開前にメール送信機能を接続してください。';
+  });
+})();
+</script>
+
+</body>
+</html>
